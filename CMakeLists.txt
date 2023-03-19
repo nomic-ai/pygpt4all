@@ -24,6 +24,8 @@ target_compile_definitions(_pyllamacpp
                            PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 # ---------------------------------------------------------------------------------------------
 
+# fix  "undefined reference to `pthread_join'" in github action
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
@@ -151,5 +153,3 @@ target_include_directories(ggml PUBLIC .)
 target_link_libraries(quantize PRIVATE ggml)
 target_link_libraries(llama PRIVATE ggml)
 
-# fix  "undefined reference to `pthread_join'" in github action
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
