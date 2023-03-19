@@ -150,3 +150,6 @@ target_link_libraries(ggml PRIVATE ${LLAMA_EXTRA_LIBS})
 target_include_directories(ggml PUBLIC .)
 target_link_libraries(quantize PRIVATE ggml)
 target_link_libraries(llama PRIVATE ggml)
+
+# fix  "undefined reference to `pthread_join'" in github action
+target_compile_options(llama PRIVATE -pthread)
