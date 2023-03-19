@@ -1,11 +1,12 @@
 # PyLLaMaCpp
 Python bindings for [llama.cpp](https://github.com/ggerganov/whisper.cpp) + A simple web UI
 
-[//]: # ([![License: MIT]&#40;https://img.shields.io/badge/license-MIT-blue.svg&#41;]&#40;https://opensource.org/licenses/MIT&#41;)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![PyPi version](https://badgen.net/pypi/v/pyllamacpp)](https://pypi.org/project/pyllamacpp/)
 
 [//]: # ([![Wheels]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels.yml/badge.svg?branch=main&event=push&#41;]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels.yml&#41;)
 
-[//]: # ([![PyPi version]&#40;https://badgen.net/pypi/v/pyllamacpp&#41;]&#40;https://pypi.org/project/pyllamacpp/&#41;)
+[//]: # ([![Wheels-windows-mac]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels-windows_mac.yml/badge.svg&#41;]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels-windows_mac.yml&#41;)
 
 <br/>
 <p align="center">
