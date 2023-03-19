@@ -97,7 +97,7 @@ class Model:
     def generate(self, prompt: str,
                  n_predict: int = 128,
                  new_text_callback: Callable[[str], None] = None,
-                 print_timings: bool = False,
+                 verbose: bool = False,
                  **params) -> str:
         """
         Runs llama.cpp inference to generate new text content from the prompt provided as input
@@ -105,7 +105,7 @@ class Model:
         :param prompt: the prompt
         :param n_predict: number of tokens to generate
         :param new_text_callback: a callback function called when new text is generated, default `None`
-        :param print_timings: print some info about the inference time
+        :param verbose: print some info about the inference
         :param params: any other llama.cpp params see [PARAMS_SCHEMA](/pyllamacpp/#pyllamacpp.constants.PARAMS_SCHEMA)
         :return: the new generated text
         """
@@ -119,7 +119,7 @@ class Model:
         Model._new_text_callback = new_text_callback
 
         # run the prediction
-        pp.llama_generate(self.params, self._model, self._vocab, self._call_new_text_callback, print_timings)
+        pp.llama_generate(self.params, self._model, self._vocab, self._call_new_text_callback, verbose)
         return self.res
 
     def get_params(self) -> dict:
