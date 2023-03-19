@@ -1,0 +1,27 @@
+version: '{build}'
+image: Visual Studio 2019
+platform:
+- x86
+- x64
+environment:
+  global:
+    DISTUTILS_USE_SDK: 1
+    PYTHONWARNINGS: ignore:DEPRECATION
+    MSSdk: 1
+  matrix:
+  - PYTHON: 37
+install:
+- cmd: '"%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %PLATFORM%'
+- ps: |
+    git submodule update -q --init --recursive
+    if ($env:PLATFORM -eq "x64") { $env:PYTHON = "$env:PYTHON-x64" }
+    $env:PATH = "C:\Python$env:PYTHON\;C:\Python$env:PYTHON\Scripts\;$env:PATH"
+    python -m pip install --disable-pip-version-check --upgrade --no-warn-script-location pip build pytest
+build_script:
+- ps: |
+    python -m build -s
+    cd dist
+    python -m pip install --verbose cmake_example-0.0.1.tar.gz
+    cd ..
+test_script:
+- ps: python -m pytest
