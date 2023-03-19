@@ -9,7 +9,7 @@ import logging
 from pathlib import Path
 from typing import Callable
 import pyllamacpp.constants as constants
-import pyllamacpp._logger
+from pyllamacpp._logger import set_log_level
 
 __author__ = "abdeladim-s"
 __github__ = "https://github.com/abdeladim-s/pyllamacpp"
@@ -49,7 +49,7 @@ class Model:
                         see [PARAMS_SCHEMA](/pyllamacpp/#pyllamacpp.constants.PARAMS_SCHEMA)
         """
         # set logging level
-        _logger.set_log_level(log_level)
+        set_log_level(log_level)
 
         if not Path(ggml_model).is_file():
             raise Exception(f"File {ggml_model} not found!")

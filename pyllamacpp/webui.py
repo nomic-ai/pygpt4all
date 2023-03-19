@@ -236,7 +236,7 @@ def webui() -> None:
     if generate_button:
         params = _get_config_from_session_state("", PARAMS_SCHEMA, notification_placeholder)
         st.session_state['model'].generate(st.session_state['prompt'], new_text_callback=new_text_generated,
-                                           print_timings=True, **params)
+                                           verbose=True, **params)
 
     with st.expander("Editor configs"):
         language = st.selectbox("Language mode", options=LANGUAGES, index=113)  # 121 python, 113 plain_text
