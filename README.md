@@ -84,7 +84,7 @@ from pyllamacpp.model import Model
 def new_text_callback(text: str):
     print(text, end="")
 
-model = Model(ggml_model='./models/ggml-model-f16-q4_0.bin', n_ctx=512)
+model = Model(ggml_model='./models/ggml-model-f16-q4_0.bin', n_ctx=512, n_threads=8)
 model.generate("hello, my name is ", n_predict=55, new_text_callback=new_text_callback)
 ```
 If you don't want to use the `callback`, you can get the results from the `generate` method once the inference is finished:
@@ -93,7 +93,8 @@ If you don't want to use the `callback`, you can get the results from the `gener
 generated_text = model.generate("hello, my name is ", n_predict=55)
 print(generated_text)
 ```
-You can always refer to the [short documentation]() for more details.
+* You can pass any `llama.cpp` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.PARAMS_SCHEMA) as a keyword argument to the `Model` class or to the `generate` function.
+* You can always refer to the [short documentation]() for more details.
 
 # Discussions and contributions
 If you find any bug, please open an [issue](https://github.com/abdeladim-s/pyllamacpp/issues).
