@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.4...3.18)
 project(pyllamacpp)
 
+# fix  "undefined reference to `pthread_join'" in github action
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+
 add_subdirectory(pybind11)
 add_subdirectory(llama.cpp)
 
@@ -24,8 +27,7 @@ target_compile_definitions(_pyllamacpp
                            PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 # ---------------------------------------------------------------------------------------------
 
-# fix  "undefined reference to `pthread_join'" in github action
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
