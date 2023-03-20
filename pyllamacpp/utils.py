@@ -16,7 +16,7 @@ import torch
 from sentencepiece import SentencePieceProcessor
 
 
-def llama_to_ggml(dir_model: str, ftype : int = 1) -> str:
+def llama_to_ggml(dir_model: str, ftype: int = 1) -> str:
     """
     A helper function to convert LLaMa Pytorch models to ggml,
     same exact script as `convert-pth-to-ggml.py` from [llama.cpp](https://github.com/ggerganov/llama.cpp)
@@ -52,7 +52,6 @@ def llama_to_ggml(dir_model: str, ftype : int = 1) -> str:
     # map from ftype to string
     ftype_str = ["f32", "f16"]
 
-
     with open(fname_hparams, "r") as f:
         hparams = json.load(f)
 
@@ -70,10 +69,10 @@ def llama_to_ggml(dir_model: str, ftype : int = 1) -> str:
 
         # fname_model = dir_model + "/consolidated.00.pth"
 
-        fname_model = str(Path(dir_model) / "consolidated.0" + str(p) + ".pth")
-        fname_out = str(Path(dir_model) / "ggml-model-" + ftype_str[ftype] + ".bin")
+        fname_model = str(Path(dir_model) / f"consolidated.0{str(p)}.pth")
+        fname_out = str(Path(dir_model) / f"ggml-model-{ftype_str[ftype]}.bin")
         if (p > 0):
-            fname_out = str(Path(dir_model) / "ggml-model-" + ftype_str[ftype] + ".bin") + "." + str(p)
+            fname_out = str(Path(dir_model) / f"ggml-model-{ftype_str[ftype]}.bin.{str(p)}")
 
         model = torch.load(fname_model, map_location="cpu")
 
@@ -167,6 +166,7 @@ def llama_to_ggml(dir_model: str, ftype : int = 1) -> str:
         print("")
         return fname_out
 
+
 def quantize(ggml_model_path: str, output_model_path: str = None, itype: int = 2) -> str:
     """
     Qunatizes the ggml model.
@@ -180,5 +180,6 @@ def quantize(ggml_model_path: str, output_model_path: str = None, itype: int = 2
         output_model_path = ggml_model_path + f'-q4_{0 if itype == 2 else 1}.bin'
     logging.info("Quantization will start soon ... (This my take a while)")
     pp.llama_quantize(ggml_model_path, output_model_path, itype)
-    logging.info(f"Quantized model is created succeffully {output_model_path}")
+    logging.info(f"Quantized model is created successfully {output_model_path}")
     return output_model_path
+

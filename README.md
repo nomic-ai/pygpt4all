@@ -10,17 +10,15 @@ Python bindings for [llama.cpp](https://github.com/ggerganov/whisper.cpp) + A si
 
 <br/>
 <p align="center">
-  <img src="./docs/demo.gif">
+  <img src="https://github.com/abdeladim-s/pyllamacpp/blob/main/docs/demo.gif?raw=true">
 </p>
 
 
-For those who don't know, llama.cpp is a port of Facebook's LLaMA model in pure C/C++.
-
-The main features are:
+For those who don't know, `llama.cpp` is a port of Facebook's LLaMA model in pure C/C++:
 
 <blockquote>
 
-- Plain C/C++ implementation without dependencies
+- Without dependencies
 - Apple silicon first-class citizen - optimized via ARM NEON
 - AVX2 support for x86 architectures
 - Mixed F16 / F32 precision
@@ -62,7 +60,7 @@ The package contains a simple web UI to test the bindings:
 - Only needs Python.
 - Has the option to convert the models to `ggml` format.
 - A code like editor.
-- Different options to tweak the llama.cpp parameters.
+- Different options to tweak the `llama.cpp` parameters.
 - Ability to export the generated text.
 
 From the command line, run:
@@ -76,7 +74,7 @@ A web page will be opened on your default browser, otherwise navigate to the lin
 
 ### Python bindings
 
-You can call the package directly from Python, if you want to create your own scripts or APIs:
+A simple `Pythonic` API is built on top of `llama.cpp` C/C++ functions. You can call it from Python as follows:
 
 ```python
 from pyllamacpp.model import Model
@@ -85,12 +83,12 @@ def new_text_callback(text: str):
     print(text, end="")
 
 model = Model(ggml_model='./models/ggml-model-f16-q4_0.bin', n_ctx=512, n_threads=8)
-model.generate("hello, my name is ", n_predict=55, new_text_callback=new_text_callback)
+model.generate("Once upon a time, ", n_predict=55, new_text_callback=new_text_callback)
 ```
 If you don't want to use the `callback`, you can get the results from the `generate` method once the inference is finished:
 
 ```python
-generated_text = model.generate("hello, my name is ", n_predict=55)
+generated_text = model.generate("Once upon a time, ", n_predict=55)
 print(generated_text)
 ```
 * You can pass any `llama.cpp` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.PARAMS_SCHEMA) as a keyword argument to the `Model` class or to the `generate` function.
