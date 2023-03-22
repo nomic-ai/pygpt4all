@@ -94,6 +94,15 @@ print(generated_text)
 * You can pass any `llama.cpp` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.PARAMS_SCHEMA) as a keyword argument to the `Model` class or to the `generate` function.
 * You can always refer to the [short documentation](https://abdeladim-s.github.io/pyllamacpp/) for more details.
 
+You can convert and quantize the models from Python as well:
+
+```python
+from pyllamacpp.utils import llama_to_ggml, quantize
+
+ggml_model_path = llama_to_ggml("path/to/llama_model")
+ggm_model_quantized_path = quantize(ggml_model_path)
+```
+
 # Discussions and contributions
 If you find any bug, please open an [issue](https://github.com/abdeladim-s/pyllamacpp/issues).
 
