@@ -1,5 +1,5 @@
 # PyLLaMaCpp
-Python bindings for [llama.cpp](https://github.com/ggerganov/whisper.cpp) + A simple web UI
+Python bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp) + A simple web UI
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PyPi version](https://badgen.net/pypi/v/pyllamacpp)](https://pypi.org/project/pyllamacpp/)
