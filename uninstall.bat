@@ -36,8 +36,9 @@ set /p choice=
 if /i "%choice%" equ "Y" (
     REM Download Python installer
     echo -n 
+    deactivate || :    
     set /p="Removing virtual environment..." <nul
-    powershell -Command "rd /s /q"
+    rd env /s /q
     echo OK
     pause
 ) else (
