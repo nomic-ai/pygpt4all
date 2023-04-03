@@ -1,5 +1,5 @@
 # PyLLaMaCpp
-Python bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp) + A simple web UI
+Python bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp)
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PyPi version](https://badgen.net/pypi/v/pyllamacpp)](https://pypi.org/project/pyllamacpp/)
@@ -34,8 +34,8 @@ For those who don't know, `llama.cpp` is a port of Facebook's LLaMA model in pur
 <!-- TOC -->
 * [Installation](#installation)
 * [Usage](#usage)
-    * [Web UI](#web-ui)
-    * [Python bindings](#python-bindings)
+* [Supported model](#supported-model)
+    * [GPT4All](#gpt4all)
 * [Discussions and contributions](#discussions-and-contributions)
 * [License](#license)
 <!-- TOC -->
@@ -56,26 +56,41 @@ pip install .
 
 # Usage
 
-### Web UI
-The package contains a simple web UI to test the bindings:
+[//]: # ()
+[//]: # (### Web UI)
 
-- Lightweight, and easy to use.
-- Only needs Python.
-- Has the option to convert the models to `ggml` format.
-- A code like editor.
-- Different options to tweak the `llama.cpp` parameters.
-- Ability to export the generated text.
+[//]: # (The package contains a simple web UI to test the bindings:)
 
-From the command line, run:
-```shell
-pyllamacpp-webui
-```
+[//]: # ()
+[//]: # (- Lightweight, and easy to use.)
 
-That's it!<br>
-A web page will be opened on your default browser, otherwise navigate to the links provided by the command.
+[//]: # (- Only needs Python.)
 
+[//]: # (- Has the option to convert the models to `ggml` format.)
 
-### Python bindings
+[//]: # (- A code like editor.)
+
+[//]: # (- Different options to tweak the `llama.cpp` parameters.)
+
+[//]: # (- Ability to export the generated text.)
+
+[//]: # ()
+[//]: # (From the command line, run:)
+
+[//]: # (```shell)
+
+[//]: # (pyllamacpp-webui)
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (That's it!<br>)
+
+[//]: # (A web page will be opened on your default browser, otherwise navigate to the links provided by the command.)
+
+[//]: # ()
+[//]: # ()
+[//]: # (### Python bindings)
 
 A simple `Pythonic` API is built on top of `llama.cpp` C/C++ functions. You can call it from Python as follows:
 
@@ -85,7 +100,7 @@ from pyllamacpp.model import Model
 def new_text_callback(text: str):
     print(text, end="")
 
-model = Model(ggml_model='./models/ggml-model-f16-q4_0.bin', n_ctx=512, n_threads=8)
+model = Model(ggml_model='./models/gpt4all-model.bin', n_ctx=512, n_threads=8)
 model.generate("Once upon a time, ", n_predict=55, new_text_callback=new_text_callback)
 ```
 If you don't want to use the `callback`, you can get the results from the `generate` method once the inference is finished:
@@ -98,7 +113,6 @@ print(generated_text)
 * You can pass any `gpt` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `generarte` method
 * You can always refer to the [short documentation](https://abdeladim-s.github.io/pyllamacpp/) for more details.
 
-You can convert and quantize the models from Python as well:
 
 # Supported model
 
