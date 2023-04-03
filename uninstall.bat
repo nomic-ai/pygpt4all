@@ -36,7 +36,7 @@ set /p choice=
 if /i "%choice%" equ "Y" (
     REM Download Python installer
     echo -n 
-    deactivate || :    
+    deactivate 2>nul || :    
     set /p="Removing virtual environment..." <nul
     rd env /s /q
     echo OK
