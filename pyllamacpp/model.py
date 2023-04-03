@@ -23,7 +23,7 @@ import _pyllamacpp as pp
 
 class Model:
     """
-    A simple Python class to use llama.cpp
+    A simple Python class on top of llama.cpp
 
     Example usage
     ```python
@@ -38,51 +38,40 @@ class Model:
 
     def __init__(self,
                  ggml_model: str,
-                 n_ctx: int = 512,
                  log_level: int = logging.INFO,
-                 **params):
+                 **llama_params):
         """
         :param ggml_model: the path to the ggml model
-        :param n_ctx: The maximum number of tokens of the prompt, default to 512
         :param log_level: logging level, set to INFO by default
-        :param params: keyword arguments for different whisper.cpp parameters,
-                        see [PARAMS_SCHEMA](/pyllamacpp/#pyllamacpp.constants.PARAMS_SCHEMA)
+        :param llama_params: keyword arguments for different whisper.cpp parameters,
+                        see [PARAMS_SCHEMA](/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA)
         """
         # set logging level
         set_log_level(log_level)
 
         if not Path(ggml_model).is_file():
             raise Exception(f"File {ggml_model} not found!")
-        self._model = pp.llama_model()
-        self._vocab = pp.gpt_vocab()
-        self.params = pp.gpt_params()
-        # init the model
-        self._init_model(ggml_model, n_ctx)
-        # assign params
-        self._set_params(params)
+
+        self.llama_params = pp.llama_context_default_params()
+        # update llama_params
+        self._set_params(self.llama_params, llama_params)
+
+        self._ctx = pp.llama_init_from_file(ggml_model, self.llama_params)
+
+        # gpt params
+        self.gpt_params = pp.gpt_params()
 
         self.res = ""
 
-    def _init_model(self, model_path: str, n_ctx: int) -> None:
-        """
-        Private method to set load the model
-        :param model_path:  ggml model path
-        :param n_ctx: n_ctx
-        :return: None
-        """
-        logging.info("Loading model ...")
-        if not pp.llama_model_load(model_path, self._model, self._vocab, n_ctx):
-            logging.error(f"failed to load model from {model_path}\n")
-            sys.exit(1)
-
-    def _set_params(self, kwargs: dict) -> None:
+    @staticmethod
+    def _set_params(params, kwargs: dict) -> None:
         """
         Private method to set the kwargs params to the `Params` class
         :param kwargs: dict like object for the different params
         :return: None
         """
         for param in kwargs:
-            setattr(self.params, param, kwargs[param])
+            setattr(params, param, kwargs[param])
 
     def _call_new_text_callback(self, text) -> None:
         """
@@ -98,7 +87,7 @@ class Model:
                  n_predict: int = 128,
                  new_text_callback: Callable[[str], None] = None,
                  verbose: bool = False,
-                 **params) -> str:
+                 **gpt_params) -> str:
         """
         Runs llama.cpp inference to generate new text content from the prompt provided as input
 
@@ -106,32 +95,33 @@ class Model:
         :param n_predict: number of tokens to generate
         :param new_text_callback: a callback function called when new text is generated, default `None`
         :param verbose: print some info about the inference
-        :param params: any other llama.cpp params see [PARAMS_SCHEMA](/pyllamacpp/#pyllamacpp.constants.PARAMS_SCHEMA)
+        :param gpt_params: any other llama.cpp params see [PARAMS_SCHEMA](/pyllamacpp/#pyllamacpp.constants.GPT_PARAMS_SCHEMA)
         :return: the new generated text
         """
-        self.params.prompt = prompt
-        self.params.n_predict = n_predict
+        self.gpt_params.prompt = prompt
+        self.gpt_params.n_predict = n_predict
         # update other params if any
-        self._set_params(params)
+        self._set_params(self.gpt_params, gpt_params)
 
         # assign new_text_callback
         self.res = ""
         Model._new_text_callback = new_text_callback
 
         # run the prediction
-        pp.llama_generate(self.params, self._model, self._vocab, self._call_new_text_callback, verbose)
+        pp.llama_generate(self._ctx, self.gpt_params, self._call_new_text_callback, verbose)
         return self.res
 
-    def get_params(self) -> dict:
+    @staticmethod
+    def get_params(params) -> dict:
         """
-        Returns a `dict` representation of the actual params
+        Returns a `dict` representation of the params
         :return: params dict
         """
         res = {}
-        for param in dir(self.params):
+        for param in dir(params):
             if param.startswith('__'):
                 continue
-            res[param] = getattr(self.params, param)
+            res[param] = getattr(params, param)
         return res
 
     @staticmethod
@@ -140,7 +130,8 @@ class Model:
         A simple link to [PARAMS_SCHEMA](/pyllamacpp/#pyllamacpp.constants.PARAMS_SCHEMA)
         :return: dict of params schema
         """
-        return constants.PARAMS_SCHEMA
+        return constants.GPT_PARAMS_SCHEMA
 
     def __del__(self):
-        pp.llama_free(self._model)
+        pp.llama_free(self._ctx)
+

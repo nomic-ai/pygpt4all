@@ -91,16 +91,21 @@ If you don't want to use the `callback`, you can get the results from the `gener
 generated_text = model.generate("Once upon a time, ", n_predict=55)
 print(generated_text)
 ```
-* You can pass any `llama.cpp` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.PARAMS_SCHEMA) as a keyword argument to the `Model` class or to the `generate` function.
+* You can pass any `llama context` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `Model` class
+* You can pass any `gpt` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `generarte` method
 * You can always refer to the [short documentation](https://abdeladim-s.github.io/pyllamacpp/) for more details.
 
 You can convert and quantize the models from Python as well:
 
-```python
-from pyllamacpp.utils import llama_to_ggml, quantize
+# Supported model
 
-ggml_model_path = llama_to_ggml("path/to/llama_model")
-ggm_model_quantized_path = quantize(ggml_model_path)
+### GPT4All
+1. First [Get](https://github.com/nomic-ai/gpt4all#try-it-yourself) the gpt4all model.
+2. Convert it to the new `ggml` format
+
+On your terminal run: 
+```shell
+pyllamacpp-convert-gpt4all path/to/gpt4all_model.bin path/to/llama_tokenizer path/to/gpt4all-converted.bin
 ```
 
 # Discussions and contributions

@@ -10,8 +10,58 @@ PACKAGE_NAME = 'pyllamacpp'
 
 LOGGING_LEVEL = logging.INFO
 
+LLAMA_CONTEXT_PARAMS_SCHEMA = {
+    'n_ctx': {
+        'type': int,
+        'description': "text context",
+        'options': None,
+        'default': -1
+    },
+    'n_parts': {
+        'type': int,
+        'description': "",
+        'options': None,
+        'default': -1
+    },
+    'seed': {
+        'type': int,
+        'description': "RNG seed, 0 for random",
+        'options': None,
+        'default': 0
+    },
+    'f16_kv': {
+        'type': bool,
+        'description': "use fp16 for KV cache",
+        'options': None,
+        'default': 0
+    },
+    'logits_all': {
+        'type': bool,
+        'description': "the llama_eval() call computes all logits, not just the last one",
+        'options': None,
+        'default': 0
+    },
+    'vocab_only': {
+        'type': bool,
+        'description': "only load the vocabulary, no weights",
+        'options': None,
+        'default': 0
+    },
+    'use_mlock': {
+        'type': bool,
+        'description': "force system to keep model in RAM",
+        'options': None,
+        'default': 0
+    },
+    'embedding': {
+        'type': bool,
+        'description': "embedding mode only",
+        'options': None,
+        'default': 0
+    }
+}
 
-PARAMS_SCHEMA = {
+GPT_PARAMS_SCHEMA = {
     'seed': {
             'type': int,
             'description': "RNG seed",

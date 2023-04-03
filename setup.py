@@ -131,7 +131,7 @@ long_description = (this_directory / "README.md").read_text()
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
     name="pyllamacpp",
-    version="1.0.3",
+    version="1.0.5",
     author="abdeladim-s",
     description="Python bindings for llama.cpp",
     long_description=long_description,
@@ -145,7 +145,8 @@ setup(
     long_description_content_type="text/markdown",
     license='MIT',
     entry_points={
-        'console_scripts': ['pyllamacpp-webui=pyllamacpp.webui:run']
+        'console_scripts': ['pyllamacpp-webui=pyllamacpp.webui:run',
+                            'pyllamacpp-convert-gpt4all=pyllamacpp.scripts.convert-gpt4all:main']
     },
     project_urls={
         'Documentation': 'https://abdeladim-s.github.io/pyllamacpp',

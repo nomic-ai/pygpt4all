@@ -18,7 +18,7 @@ __copyright__ = "Copyright 2023,"
 __deprecated__ = False
 __version__ = importlib.metadata.version('pyllamacpp')
 
-from pyllamacpp.constants import PARAMS_SCHEMA
+from pyllamacpp.constants import GPT_PARAMS_SCHEMA
 from pyllamacpp.model import Model
 import pyllamacpp.utils as utils
 
@@ -227,14 +227,14 @@ def webui() -> None:
                 st.session_state['generate_button_disabled'] = False
 
         with st.expander('Generation params', expanded=False):
-            _generate_config_ui("", PARAMS_SCHEMA)
+            _generate_config_ui("", GPT_PARAMS_SCHEMA)
 
         generate_button = st.button('Generate', type='primary', disabled=st.session_state['generate_button_disabled'],
                                     help="Please load the model first" if st.session_state[
                                         'generate_button_disabled'] else "Generate new text")
 
     if generate_button:
-        params = _get_config_from_session_state("", PARAMS_SCHEMA, notification_placeholder)
+        params = _get_config_from_session_state("", GPT_PARAMS_SCHEMA, notification_placeholder)
         st.session_state['model'].generate(st.session_state['prompt'], new_text_callback=new_text_generated,
                                            verbose=True, **params)
 

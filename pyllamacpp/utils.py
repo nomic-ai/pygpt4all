@@ -15,7 +15,6 @@ import numpy as np
 import torch
 from sentencepiece import SentencePieceProcessor
 
-
 def llama_to_ggml(dir_model: str, ftype: int = 1) -> str:
     """
     A helper function to convert LLaMa Pytorch models to ggml,
@@ -183,3 +182,6 @@ def quantize(ggml_model_path: str, output_model_path: str = None, itype: int = 2
     logging.info(f"Quantized model is created successfully {output_model_path}")
     return output_model_path
 
+
+def convert_gpt4all() -> str:
+    pass
