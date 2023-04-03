@@ -8,10 +8,13 @@ Python bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp) + A simp
 
 [//]: # ([![Wheels-windows-mac]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels-windows_mac.yml/badge.svg&#41;]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels-windows_mac.yml&#41;)
 
-<br/>
-<p align="center">
-  <img src="https://github.com/abdeladim-s/pyllamacpp/blob/main/docs/demo.gif?raw=true">
-</p>
+[//]: # (<br/>)
+
+[//]: # (<p align="center">)
+
+[//]: # (  <img src="https://github.com/abdeladim-s/pyllamacpp/blob/main/docs/demo.gif?raw=true">)
+
+[//]: # (</p>)
 
 
 For those who don't know, `llama.cpp` is a port of Facebook's LLaMA model in pure C/C++:
