@@ -110,6 +110,7 @@ If you don't want to use the `callback`, you can get the results from the `gener
 generated_text = model.generate("Once upon a time, ", n_predict=55)
 print(generated_text)
 ```
+
 * You can pass any `llama context` [parameter](https://nomic-ai.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `Model` class
 * You can pass any `gpt` [parameter](https://nomic-ai.github.io/pyllamacpp/#pyllamacpp.constants.GPT_PARAMS_SCHEMA) as a keyword argument to the `generarte` method
 * You can always refer to the [short documentation](https://nomic-ai.github.io/pyllamacpp/) for more details.
