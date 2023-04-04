@@ -125,6 +125,8 @@ On your terminal run:
 pyllamacpp-convert-gpt4all path/to/gpt4all_model.bin path/to/llama_tokenizer path/to/gpt4all-converted.bin
 ```
 
+# FAQs
+* Where to find the llama tokenizer? [#5](https://github.com/nomic-ai/pyllamacpp/issues/5)
 # Discussions and contributions
 If you find any bug, please open an [issue](https://github.com/abdeladim-s/pyllamacpp/issues).
 
