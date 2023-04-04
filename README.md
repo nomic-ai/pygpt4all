@@ -1,5 +1,6 @@
-# PyLLaMaCpp
-Python bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp)
+# PyLLaMACpp
+Official supported Python bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp) + gpt4all
+
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PyPi version](https://badgen.net/pypi/v/pyllamacpp)](https://pypi.org/project/pyllamacpp/)
@@ -100,8 +101,8 @@ from pyllamacpp.model import Model
 def new_text_callback(text: str):
     print(text, end="")
 
-model = Model(ggml_model='./models/gpt4all-model.bin', n_ctx=512, n_threads=8)
-model.generate("Once upon a time, ", n_predict=55, new_text_callback=new_text_callback)
+model = Model(ggml_model='./models/gpt4all-model.bin', n_ctx=512)
+model.generate("Once upon a time, ", n_predict=55, new_text_callback=new_text_callback, n_threads=8)
 ```
 If you don't want to use the `callback`, you can get the results from the `generate` method once the inference is finished:
 
@@ -109,9 +110,10 @@ If you don't want to use the `callback`, you can get the results from the `gener
 generated_text = model.generate("Once upon a time, ", n_predict=55)
 print(generated_text)
 ```
-* You can pass any `llama context` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `Model` class
-* You can pass any `gpt` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `generate` method
-* You can always refer to the [short documentation](https://abdeladim-s.github.io/pyllamacpp/) for more details.
+
+* You can pass any `llama context` [parameter](https://nomic-ai.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `Model` class
+* You can pass any `gpt` [parameter](https://nomic-ai.github.io/pyllamacpp/#pyllamacpp.constants.GPT_PARAMS_SCHEMA) as a keyword argument to the `generarte` method
+* You can always refer to the [short documentation](https://nomic-ai.github.io/pyllamacpp/) for more details.
 
 
 # Supported model
@@ -125,12 +127,15 @@ On your terminal run:
 pyllamacpp-convert-gpt4all path/to/gpt4all_model.bin path/to/llama_tokenizer path/to/gpt4all-converted.bin
 ```
 
-# Discussions and contributions
-If you find any bug, please open an [issue](https://github.com/abdeladim-s/pyllamacpp/issues).
+# FAQs
+* Where to find the llama tokenizer? [#5](https://github.com/nomic-ai/pyllamacpp/issues/5)
 
-If you have any feedback, or you want to share how you are using this project, feel free to use the [Discussions](https://github.com/abdeladim-s/pyllamacpp/discussions) and open a new topic.
+# Discussions and contributions
+If you find any bug, please open an [issue](https://github.com/nomic-ai/pyllamacpp/issues).
+
+If you have any feedback, or you want to share how you are using this project, feel free to use the [Discussions](https://github.com/nomic-ai/pyllamacpp/discussions) and open a new topic.
 
 # License
 
-This project is licensed under the same license as [llama.cpp](https://github.com/ggerganov/whisper.cpp/blob/master/LICENSE) (MIT  [License](./LICENSE)).
+This project is licensed under the same license as [llama.cpp](https://github.com/ggerganov/llama.cpp/blob/master/LICENSE) (MIT  [License](./LICENSE)).
 

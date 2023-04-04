@@ -1,6 +1,6 @@
-site_name: PyLLaMaCpp
-repo_url: https://github.com/abdeladim-s/pyllamacpp
-repo_name: abdeladim-s/pyllamacpp
+site_name: PyLLaMACpp
+repo_url: https://github.com/nomic-ai/pyllamacpp
+repo_name: nomic-ai/pyllamacpp
 theme:
   name: material
   language: en
@@ -28,7 +28,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/abdeladim-s/pyllamacpp
+      link: https://github.com/nomic-ai/pyllamacpp
 
 markdown_extensions:
   - pymdownx.inlinehilite
