@@ -110,7 +110,7 @@ generated_text = model.generate("Once upon a time, ", n_predict=55)
 print(generated_text)
 ```
 * You can pass any `llama context` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `Model` class
-* You can pass any `gpt` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `generarte` method
+* You can pass any `gpt` [parameter](https://abdeladim-s.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `generate` method
 * You can always refer to the [short documentation](https://abdeladim-s.github.io/pyllamacpp/) for more details.
 
 
