@@ -38,7 +38,7 @@ if /i "%choice%" equ "Y" (
     echo -n 
     deactivate 2>nul || :    
     set /p="Removing virtual environment..." <nul
-    rd env /s /q
+    powershell -Command "Remove-Item -Recurse -Force env"
     echo OK
     pause
 ) else (
