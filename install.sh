@@ -83,8 +83,6 @@ echo "OK"
 
 # Install the required packages
 echo "Installing requirements..."
-export DS_BUILD_OPS=0
-export DS_BUILD_AIO=0
 python3.10 -m pip install pip --upgrade
 python3.10 -m pip install -r requirements.txt
 
