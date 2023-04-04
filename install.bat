@@ -31,7 +31,7 @@ echo               S........::::::::                   ::::::::........S
 echo                  S....*.....G::                   ::G..........S                
 echo                      S.........                   .........S                    
 echo                           G:.*.                   ...:G                                     
-echo echo PYLLAMACPP Install tool
+echo PYLLAMACPP Install tool
 echo This will install the python bindings for llamacpp.
 
 pause
