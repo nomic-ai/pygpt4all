@@ -1,5 +1,6 @@
-# PyLLaMaCpp
-Python bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp)
+# PyLLaMACpp
+Official supported Python bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp) + gpt4all
+
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PyPi version](https://badgen.net/pypi/v/pyllamacpp)](https://pypi.org/project/pyllamacpp/)
@@ -127,12 +128,13 @@ pyllamacpp-convert-gpt4all path/to/gpt4all_model.bin path/to/llama_tokenizer pat
 
 # FAQs
 * Where to find the llama tokenizer? [#5](https://github.com/nomic-ai/pyllamacpp/issues/5)
-# Discussions and contributions
-If you find any bug, please open an [issue](https://github.com/abdeladim-s/pyllamacpp/issues).
 
-If you have any feedback, or you want to share how you are using this project, feel free to use the [Discussions](https://github.com/abdeladim-s/pyllamacpp/discussions) and open a new topic.
+# Discussions and contributions
+If you find any bug, please open an [issue](https://github.com/nomic-ai/pyllamacpp/issues).
+
+If you have any feedback, or you want to share how you are using this project, feel free to use the [Discussions](https://github.com/nomic-ai/pyllamacpp/discussions) and open a new topic.
 
 # License
 
-This project is licensed under the same license as [llama.cpp](https://github.com/ggerganov/whisper.cpp/blob/master/LICENSE) (MIT  [License](./LICENSE)).
+This project is licensed under the same license as [llama.cpp](https://github.com/ggerganov/llama.cpp/blob/master/LICENSE) (MIT  [License](./LICENSE)).
 

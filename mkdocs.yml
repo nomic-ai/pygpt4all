@@ -1,4 +1,4 @@
-site_name: PyLLaMaCpp
+site_name: PyLLaMACpp
 repo_url: https://github.com/nomic-ai/pyllamacpp
 repo_name: nomic-ai/pyllamacpp
 theme:
