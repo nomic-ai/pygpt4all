@@ -352,8 +352,6 @@ int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::
     int n_remain   = params.n_predict;
     int n_consumed = 0;
 
-    // the first thing we will do is to output the prompt, so set color accordingly
-//    set_console_color(con_st, CONSOLE_COLOR_PROMPT);
 
     std::vector<llama_token> embd;
 
@@ -560,14 +558,7 @@ int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::
         }
     }
 
-//#if defined (_WIN32)
-//    signal(SIGINT, SIG_DFL);
-//#endif
-
     llama_print_timings(ctx);
-    llama_free(ctx);
-
-//    set_console_color(con_st, CONSOLE_COLOR_DEFAULT);
 
     return 0;
 }

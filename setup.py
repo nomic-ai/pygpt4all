@@ -131,9 +131,9 @@ long_description = (this_directory / "README.md").read_text()
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
     name="pyllamacpp",
-    version="1.0.5",
+    version="1.0.6",
     author="abdeladim-s",
-    description="Python bindings for llama.cpp",
+    description="Python bindings for llama.cpp + gpt4all",
     long_description=long_description,
     ext_modules=[CMakeExtension("_pyllamacpp")],
     cmdclass={"build_ext": CMakeBuild},
@@ -149,8 +149,8 @@ setup(
                             'pyllamacpp-convert-gpt4all=pyllamacpp.scripts.convert_gpt4all:main']
     },
     project_urls={
-        'Documentation': 'https://abdeladim-s.github.io/pyllamacpp',
-        'Source': 'https://github.com/abdeladim-s/pyllamacpp',
-        'Tracker': 'https://github.com/abdeladim-s/pyllamacpp/issues',
+        'Documentation': 'https://nomic-ai.github.io/pyllamacpp',
+        'Source': 'https://github.com/nomic-ai/pyllamacpp',
+        'Tracker': 'https://github.com/nomic-ai/pyllamacpp/issues',
     },
 )

@@ -48,6 +48,7 @@ class Model:
         """
         # set logging level
         set_log_level(log_level)
+        self._ctx = None
 
         if not Path(ggml_model).is_file():
             raise Exception(f"File {ggml_model} not found!")
@@ -133,5 +134,6 @@ class Model:
         return constants.GPT_PARAMS_SCHEMA
 
     def __del__(self):
-        pp.llama_free(self._ctx)
+        if self._ctx:
+            pp.llama_free(self._ctx)
 

@@ -1,7 +1,6 @@
 # PyLLaMACpp
 Official supported Python bindings for [llama.cpp](https://github.com/ggerganov/llama.cpp) + gpt4all
 
-
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PyPi version](https://badgen.net/pypi/v/pyllamacpp)](https://pypi.org/project/pyllamacpp/)
 
