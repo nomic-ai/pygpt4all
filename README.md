@@ -119,10 +119,10 @@ print(generated_text)
 
 ### GPT4All
 
-Download a GPT4All models from https://the-eye.eu/public/AI/models/nomic-ai/gpt4all/.
+Download a GPT4All model from https://the-eye.eu/public/AI/models/nomic-ai/gpt4all/.
 The easiest approach is download a file whose name ends in `ggml.bin`--older model versions require conversion.
 
-If you have an older molder downloaded that you want to convert, on your terminal run: 
+If you have an older model downloaded that you want to convert, in your terminal run: 
 ```shell
 pyllamacpp-convert-gpt4all path/to/gpt4all_model.bin path/to/llama_tokenizer path/to/gpt4all-converted.bin
 ```
