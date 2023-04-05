@@ -50,7 +50,7 @@ However, the compilation process of `llama.cpp` is taking into account the archi
 so you might need to build it from source:
 
 ```shell
-git clone --recursive https://github.com/abdeladim-s/pyllamacpp && cd pyllamacpp
+git clone --recursive https://github.com/nomic-ai/pyllamacpp && cd pyllamacpp
 pip install .
 ```
 
