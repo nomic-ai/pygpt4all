@@ -586,6 +586,7 @@ PYBIND11_MODULE(_pyllamacpp, m) {
         .def_readwrite("temp", &gpt_params::temp)
         .def_readwrite("repeat_penalty", &gpt_params::repeat_penalty)
         .def_readwrite("n_batch", &gpt_params::n_batch)
+        .def_readwrite("n_keep", &gpt_params::n_keep)
         .def_readwrite("model", &gpt_params::model)
         .def_readwrite("prompt", &gpt_params::prompt)
         .def_readwrite("use_color", &gpt_params::use_color)
