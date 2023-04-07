@@ -273,3 +273,6 @@ pybind11_add_module(_pyllamacpp
 
 target_compile_definitions(_pyllamacpp
                            PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
+if (ACCELERATE_FRAMEWORK)
+    target_link_libraries(_pyllamacpp PRIVATE "-framework Accelerate")
+endif()
