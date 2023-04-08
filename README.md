@@ -118,10 +118,11 @@ print(generated_text)
 # Supported model
 
 ### GPT4All
-1. First [Get](https://github.com/nomic-ai/gpt4all#try-it-yourself) the gpt4all model.
-2. Convert it to the new `ggml` format
 
-On your terminal run: 
+Download a GPT4All model from https://the-eye.eu/public/AI/models/nomic-ai/gpt4all/.
+The easiest approach is download a file whose name ends in `ggml.bin`--older model versions require conversion.
+
+If you have an older model downloaded that you want to convert, in your terminal run: 
 ```shell
 pyllamacpp-convert-gpt4all path/to/gpt4all_model.bin path/to/llama_tokenizer path/to/gpt4all-converted.bin
 ```
