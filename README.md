@@ -54,6 +54,14 @@ git clone --recursive https://github.com/nomic-ai/pyllamacpp && cd pyllamacpp
 pip install .
 ```
 
+2. Download a GPT4All model from https://the-eye.eu/public/AI/models/nomic-ai/gpt4all/.
+The easiest approach is download a file whose name ends in `ggml.bin`--older model versions require conversion.
+
+If you have an older model downloaded that you want to convert, in your terminal run: 
+```shell
+pyllamacpp-convert-gpt4all path/to/gpt4all_model.bin path/to/llama_tokenizer path/to/gpt4all-converted.bin
+```
+
 # Usage
 
 [//]: # ()
@@ -113,19 +121,6 @@ print(generated_text)
 * You can pass any `llama context` [parameter](https://nomic-ai.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `Model` class
 * You can pass any `gpt` [parameter](https://nomic-ai.github.io/pyllamacpp/#pyllamacpp.constants.GPT_PARAMS_SCHEMA) as a keyword argument to the `generarte` method
 * You can always refer to the [short documentation](https://nomic-ai.github.io/pyllamacpp/) for more details.
-
-
-# Supported model
-
-### GPT4All
-
-Download a GPT4All model from https://the-eye.eu/public/AI/models/nomic-ai/gpt4all/.
-The easiest approach is download a file whose name ends in `ggml.bin`--older model versions require conversion.
-
-If you have an older model downloaded that you want to convert, in your terminal run: 
-```shell
-pyllamacpp-convert-gpt4all path/to/gpt4all_model.bin path/to/llama_tokenizer path/to/gpt4all-converted.bin
-```
 
 # FAQs
 * Where to find the llama tokenizer? [#5](https://github.com/nomic-ai/pyllamacpp/issues/5)
