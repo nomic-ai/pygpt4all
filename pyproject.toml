@@ -52,6 +52,3 @@ target-version = "py39"
 [project]
 name = "pyllamacpp"
 dynamic = ["dependencies", "version", "readme"]
-
-[tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
