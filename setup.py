@@ -153,4 +153,6 @@ setup(
         'Source': 'https://github.com/nomic-ai/pyllamacpp',
         'Tracker': 'https://github.com/nomic-ai/pyllamacpp/issues',
     },
+    install_requires=[],
+    extras_require={"all": ["streamlit", "streamlit-ace", "sentencepiece", "torch"]},
 )
