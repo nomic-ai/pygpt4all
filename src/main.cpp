@@ -497,7 +497,14 @@ int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::
                 std::string line;
                 bool another_line = true;
                 do {
-                    line = grab_text_callback().cast<std::string>();
+                    py::handle x = grab_text_callback();
+
+                    if (!py::isinstance<py::str>(x))
+                    {
+                        return 0;
+                    }
+
+                    line = x.cast<std::string>();
                     if (line.empty() || line.back() != '\\') {
                         another_line = false;
                     } else {

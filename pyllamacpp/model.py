@@ -88,7 +88,7 @@ class Model:
     def _call_grab_text_callback(self) -> str:
         if Model._grab_text_callback is not None:
             return Model._grab_text_callback()
-        return ""
+        return None
 
     def generate(self, prompt: str,
                  n_predict: int = 128,
