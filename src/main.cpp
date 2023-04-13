@@ -505,7 +505,7 @@ int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::
                     }
                     else if (!py::isinstance<py::str>(x))
                     {
-                        new_text_callback("Input was not of type py:str");
+                        fprintf(stderr, "%s : input was not of type py::str. will ignore.\n", __func__);
                     }
                     else
                     {
