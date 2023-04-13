@@ -499,18 +499,25 @@ int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::
                 do {
                     py::handle x = grab_text_callback();
 
-                    if (!py::isinstance<py::str>(x))
+                    if (x.is_none())
                     {
                         return 0;
                     }
-
-                    line = x.cast<std::string>();
-                    if (line.empty() || line.back() != '\\') {
-                        another_line = false;
-                    } else {
-                        line.pop_back(); // Remove the continue character
+                    else if (!py::isinstance<py::str>(x))
+                    {
+                        new_text_callback("Input was not of type py:str");
                     }
-                    buffer += line + '\n'; // Append the line to the result
+                    else
+                    {
+                        line = x.cast<std::string>();
+                        if (line.empty() || line.back() != '\\') {
+                            another_line = false;
+                        } else {
+                            line.pop_back(); // Remove the continue character
+                        }
+                        buffer += line + '\n'; // Append the line to the result
+                    }
+
                 } while (another_line);
 
                 // done taking input, reset color
