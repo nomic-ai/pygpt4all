@@ -110,6 +110,38 @@ generated_text = model.generate("Once upon a time, ", n_predict=55)
 print(generated_text)
 ```
 
+## Interactive Mode
+
+If you want to run the program in interactive mode you can add the `grab_text_callback` function and set `interactive` to True in the generate function. `grab_text_callback` should always return a string unless you wish to signal EOF in which case you should return None.
+
+```py
+from pyllamacpp.model import Model
+
+def new_text_callback(text: str):
+    print(text, end="", flush=True)
+
+def grab_text_callback() -> str:
+    inpt = input()
+    # To signal EOF, return None
+    if inpt == "END":
+        return None
+    return inpt + "\n"
+
+model = Model(ggml_model='./models/gpt4all-model.bin', n_ctx=512)
+
+# prompt from https://github.com/ggerganov/llama.cpp/blob/master/prompts/chat-with-bob.txt
+prompt = """
+Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing, and never fails to answer the User's requests immediately and with precision. To do this, Bob uses a database of information collected from many different sources, including books, journals, online articles, and more.
+
+User: Hello, Bob.
+Bob: Hello. How may I help you today?
+User: Please tell me the largest city in Europe.
+Bob: Sure. The largest city in Europe is Moscow, the capital of Russia.
+User:"""
+
+model.generate(prompt, n_predict=256, new_text_callback=new_text_callback, grab_text_callback=grab_text_callback, interactive=True, repeat_penalty=1.0, antiprompt=["User:"])
+```
+
 * You can pass any `llama context` [parameter](https://nomic-ai.github.io/pyllamacpp/#pyllamacpp.constants.LLAMA_CONTEXT_PARAMS_SCHEMA) as a keyword argument to the `Model` class
 * You can pass any `gpt` [parameter](https://nomic-ai.github.io/pyllamacpp/#pyllamacpp.constants.GPT_PARAMS_SCHEMA) as a keyword argument to the `generarte` method
 * You can always refer to the [short documentation](https://nomic-ai.github.io/pyllamacpp/) for more details.
