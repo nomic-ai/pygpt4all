@@ -18,7 +18,7 @@ class GPT4All(pyllamacpp.model.Model):
     """
     GPT4All model
 
-    Base: [pyllamacpp.model.Model](.#pyllamacpp.model.Model)
+    Base: [pyllamacpp.model.Model](#pyllamacpp.model.Model)
 
     Example usage
     ```python
