@@ -1,6 +1,6 @@
-site_name: PyLLaMACpp
-repo_url: https://github.com/nomic-ai/pyllamacpp
-repo_name: nomic-ai/pyllamacpp
+site_name: PyGPT4ALL
+repo_url: https://github.com/abdeladim-s/pygpt4all
+repo_name: abdeladim-s/pygpt4all
 theme:
   name: material
   language: en
@@ -28,7 +28,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/nomic-ai/pyllamacpp
+      link: https://github.com/abdeladim-s/pygpt4all
 
 markdown_extensions:
   - pymdownx.inlinehilite
@@ -73,5 +73,5 @@ plugins:
             filters:
               - "!^_"
       watch:
-        - pyllamacpp/
+        - pygpt4all/
 

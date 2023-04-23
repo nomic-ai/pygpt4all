@@ -1,10 +1,5 @@
-# PyLLaMaCpp API Reference
+# PyGPT-J API Reference
 
 
-::: pyllamacpp.model
+::: pygpt4all.models
 
-::: pyllamacpp.constants
-    options:
-        show_if_no_docstring: true
-
-::: pyllamacpp.utils

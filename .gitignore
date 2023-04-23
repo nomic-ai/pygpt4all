@@ -7,7 +7,7 @@ _generate/
 *.egg-info
 *env*
 
-mtests
+
 
 
 # custom
@@ -15,6 +15,7 @@ mtests
 _docs
 _examples
 src/.idea
+mtests
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
