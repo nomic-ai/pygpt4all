@@ -36,7 +36,7 @@ model.generate("Once upon a time, ", n_predict=55, new_text_callback=new_text_ca
 
 ### GPT4All-J model
 
-Download the GPT4All-J model from https://gpt4all.io/models/ggml-gpt4all-j.bin
+Download the GPT4All-J model from https://gpt4all.io/models/ggml-gpt4all-j-v1.2-jazzy.bin
 
 ```python
 from pygpt4all.models.gpt4all_j import GPT4All_J
