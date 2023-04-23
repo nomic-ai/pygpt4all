@@ -167,7 +167,7 @@ std::string gpt_random_prompt(std::mt19937 & rng) {
 
 // quick and dirty implementation! just copied from main.cpp with some minor changes
 // Needs lots of improvements
-int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::function new_text_callback, bool verbose){
+int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::function new_text_callback, py::function grab_text_callback, bool verbose){
 
     if (params.perplexity) {
         printf("\n************\n");
@@ -303,7 +303,7 @@ int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::
         fprintf(stderr, "\n");
     }
 
-//    if (params.interactive) {
+   if (params.interactive) {
 //#if defined (__unix__) || (defined (__APPLE__) && defined (__MACH__))
 //        struct sigaction sigint_action;
 //        sigint_action.sa_handler = sigint_handler;
@@ -314,18 +314,18 @@ int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::
 //        signal(SIGINT, sigint_handler);
 //#endif
 //
-//        fprintf(stderr, "%s: interactive mode on.\n", __func__);
-//
-//        if (params.antiprompt.size()) {
-//            for (auto antiprompt : params.antiprompt) {
-//                fprintf(stderr, "Reverse prompt: '%s'\n", antiprompt.c_str());
-//            }
-//        }
-//
-//        if (!params.input_prefix.empty()) {
-//            fprintf(stderr, "Input prefix: '%s'\n", params.input_prefix.c_str());
-//        }
-//    }
+       fprintf(stderr, "%s: interactive mode on.\n", __func__);
+
+       if (params.antiprompt.size()) {
+           for (auto antiprompt : params.antiprompt) {
+               fprintf(stderr, "Reverse prompt: '%s'\n", antiprompt.c_str());
+           }
+       }
+
+       if (!params.input_prefix.empty()) {
+           fprintf(stderr, "Input prefix: '%s'\n", params.input_prefix.c_str());
+       }
+   }
     fprintf(stderr, "sampling: temp = %f, top_k = %d, top_p = %f, repeat_last_n = %i, repeat_penalty = %f\n",
             params.temp, params.top_k, params.top_p, params.repeat_last_n, params.repeat_penalty);
     fprintf(stderr, "generate: n_ctx = %d, n_batch = %d, n_predict = %d, n_keep = %d\n", n_ctx, params.n_batch, params.n_predict, params.n_keep);
@@ -497,16 +497,27 @@ int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::
                 std::string line;
                 bool another_line = true;
                 do {
-                    if (!std::getline(std::cin, line)) {
-                        // input stream is bad or EOF received
+                    py::handle x = grab_text_callback();
+
+                    if (x.is_none())
+                    {
                         return 0;
                     }
-                    if (line.empty() || line.back() != '\\') {
-                        another_line = false;
-                    } else {
-                        line.pop_back(); // Remove the continue character
+                    else if (!py::isinstance<py::str>(x))
+                    {
+                        fprintf(stderr, "%s : input was not of type py::str. will ignore.\n", __func__);
                     }
-                    buffer += line + '\n'; // Append the line to the result
+                    else
+                    {
+                        line = x.cast<std::string>();
+                        if (line.empty() || line.back() != '\\') {
+                            another_line = false;
+                        } else {
+                            line.pop_back(); // Remove the continue character
+                        }
+                        buffer += line + '\n'; // Append the line to the result
+                    }
+
                 } while (another_line);
 
                 // done taking input, reset color
