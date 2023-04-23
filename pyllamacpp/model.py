@@ -35,6 +35,7 @@ class Model:
     ```
     """
     _new_text_callback = None
+    _grab_text_callback = None
 
     def __init__(self,
                  ggml_model: str,
@@ -84,9 +85,15 @@ class Model:
         # save res
         self.res += text
 
+    def _call_grab_text_callback(self) -> str:
+        if Model._grab_text_callback is not None:
+            return Model._grab_text_callback()
+        return None
+
     def generate(self, prompt: str,
                  n_predict: int = 128,
                  new_text_callback: Callable[[str], None] = None,
+                 grab_text_callback: Callable[[], str] = None,
                  verbose: bool = False,
                  **gpt_params) -> str:
         """
@@ -107,9 +114,10 @@ class Model:
         # assign new_text_callback
         self.res = ""
         Model._new_text_callback = new_text_callback
+        Model._grab_text_callback = grab_text_callback
 
         # run the prediction
-        pp.llama_generate(self._ctx, self.gpt_params, self._call_new_text_callback, verbose)
+        pp.llama_generate(self._ctx, self.gpt_params, self._call_new_text_callback, self._call_grab_text_callback, verbose)
         return self.res
 
     @staticmethod
