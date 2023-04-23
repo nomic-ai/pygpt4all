@@ -1,28 +1,23 @@
 # PyGPT4All
-Official Python CPU inference for [GPT4All](https://github.com/nomic-ai/gpt4all) language models based on [llama.cpp](https://github.com/ggerganov/llama.cpp) and [ggml](https://github.com/ggerganov/ggml).
+Official Python CPU inference for [GPT4All](https://github.com/nomic-ai/gpt4all) language models based on [llama.cpp](https://github.com/ggerganov/llama.cpp) and [ggml](https://github.com/ggerganov/ggml)
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+[//]: # ([![PyPi version]&#40;https://badgen.net/pypi/v/ptgpt4all&#41;]&#40;https://pypi.org/project/pygpt4all/&#41;)
 
 **NB: Under active development**
 
 # Installation
-1. The easy way is to use the prebuilt wheels
+
 ```bash
 pip install pygpt4all
-```
-
-2. Build it from source:
-
-```shell
-git clone --recursive https://github.com/nomic-ai/pygpt4all && cd pygpt4all
-pip install .
 ```
 
 # Usage
 
 ### GPT4All model
 
-Download a GPT4All model from https://the-eye.eu/public/AI/models/nomic-ai/gpt4all/. The easiest approach is download a file whose name ends in ggml.bin
+Download a GPT4All model from https://the-eye.eu/public/AI/models/nomic-ai/gpt4all/
 
 ```python
 from pygpt4all.models.gpt4all import GPT4All

@@ -1,6 +1,6 @@
-site_name: PyGPT4ALL
-repo_url: https://github.com/abdeladim-s/pygpt4all
-repo_name: abdeladim-s/pygpt4all
+site_name: PyGPT4All
+repo_url: https://github.com/nomic-ai/pygpt4all
+repo_name: nomic-ai/pygpt4all
 theme:
   name: material
   language: en
@@ -28,7 +28,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/abdeladim-s/pygpt4all
+      link: https://github.com/nomic-ai/pygpt4all
 
 markdown_extensions:
   - pymdownx.inlinehilite
@@ -70,6 +70,7 @@ plugins:
             show_root_full_path: true
             show_root_heading: true
             show_submodules: true
+            md_in_html: true
             filters:
               - "!^_"
       watch:

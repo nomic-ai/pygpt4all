@@ -10,7 +10,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="pygpt4all",
-    version="1.0.0",
+    version="1.0.1",
     author="Abdeladim Sadiki",
     description="Official Python CPU inference for GPT4All language models based on llama.cpp and ggml",
     long_description=long_description,
