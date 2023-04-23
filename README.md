@@ -4,18 +4,6 @@ Official supported Python bindings for [llama.cpp](https://github.com/ggerganov/
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PyPi version](https://badgen.net/pypi/v/pyllamacpp)](https://pypi.org/project/pyllamacpp/)
 
-[//]: # ([![Wheels]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels.yml/badge.svg?branch=main&event=push&#41;]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels.yml&#41;)
-
-[//]: # ([![Wheels-windows-mac]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels-windows_mac.yml/badge.svg&#41;]&#40;https://github.com/abdeladim-s/pyllamacpp/actions/workflows/wheels-windows_mac.yml&#41;)
-
-[//]: # (<br/>)
-
-[//]: # (<p align="center">)
-
-[//]: # (  <img src="https://github.com/abdeladim-s/pyllamacpp/blob/main/docs/demo.gif?raw=true">)
-
-[//]: # (</p>)
-
 
 For those who don't know, `llama.cpp` is a port of Facebook's LLaMA model in pure C/C++:
 
@@ -56,42 +44,6 @@ pip install .
 
 # Usage
 
-[//]: # ()
-[//]: # (### Web UI)
-
-[//]: # (The package contains a simple web UI to test the bindings:)
-
-[//]: # ()
-[//]: # (- Lightweight, and easy to use.)
-
-[//]: # (- Only needs Python.)
-
-[//]: # (- Has the option to convert the models to `ggml` format.)
-
-[//]: # (- A code like editor.)
-
-[//]: # (- Different options to tweak the `llama.cpp` parameters.)
-
-[//]: # (- Ability to export the generated text.)
-
-[//]: # ()
-[//]: # (From the command line, run:)
-
-[//]: # (```shell)
-
-[//]: # (pyllamacpp-webui)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (That's it!<br>)
-
-[//]: # (A web page will be opened on your default browser, otherwise navigate to the links provided by the command.)
-
-[//]: # ()
-[//]: # ()
-[//]: # (### Python bindings)
-
 A simple `Pythonic` API is built on top of `llama.cpp` C/C++ functions. You can call it from Python as follows:
 
 ```python
@@ -120,12 +72,12 @@ from pyllamacpp.model import Model
 def new_text_callback(text: str):
     print(text, end="", flush=True)
 
-def grab_text_callback() -> str:
+def grab_text_callback():
     inpt = input()
     # To signal EOF, return None
     if inpt == "END":
         return None
-    return inpt + "\n"
+    return inpt
 
 model = Model(ggml_model='./models/gpt4all-model.bin', n_ctx=512)
 
