@@ -1,4 +1,4 @@
-name: wheels-linux
+name: wheels
 
 on:
   workflow_dispatch:
@@ -36,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v3
