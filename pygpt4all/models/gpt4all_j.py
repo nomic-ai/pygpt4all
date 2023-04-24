@@ -14,8 +14,10 @@ import logging
 import pygptj.model
 from pygptj._logger import set_log_level
 
+from base_model import BaseModel
 
-class GPT4All_J(pygptj.model.Model):
+
+class GPT4All_J(pygptj.model.Model, BaseModel):
     """
     GPT4ALL-J model
 

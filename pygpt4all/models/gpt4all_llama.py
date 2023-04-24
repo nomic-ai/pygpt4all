@@ -10,13 +10,16 @@ __copyright__ = "Copyright 2023,"
 __license__ = "MIT"
 
 import logging
+
 import pyllamacpp.model
 from pygptj._logger import set_log_level
 
+from base_model import BaseModel
 
-class GPT4All(pyllamacpp.model.Model):
+
+class GPT4All_Llama(pyllamacpp.model.Model, BaseModel):
     """
-    GPT4All model
+    GPT4All Llama based model
 
     Base: [pyllamacpp.model.Model](#pyllamacpp.model.Model)
 
@@ -57,7 +60,7 @@ class GPT4All(pyllamacpp.model.Model):
         """
         # set logging level
         set_log_level(log_level)
-        super(GPT4All, self).__init__(ggml_model=model_path,
+        super(GPT4All_Llama, self).__init__(ggml_model=model_path,
                                       n_ctx=n_ctx,
                                       n_parts=n_parts,
                                       seed=seed,

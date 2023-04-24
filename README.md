@@ -15,7 +15,8 @@ pip install pygpt4all
 
 # Usage
 
-### GPT4All model
+### GPT4All llama.cpp model
+# TODO: Remove this and consolidate
 
 Download a GPT4All model from https://the-eye.eu/public/AI/models/nomic-ai/gpt4all/
 
