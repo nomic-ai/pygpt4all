@@ -35,6 +35,8 @@ class GPT4All_Llama(pyllamacpp.model.Model, BaseModel):
     ```
     """
 
+    model_type = ModelType.LLAMA
+
     def __init__(self,
                  model_path: str,
                  n_ctx: int = 512,

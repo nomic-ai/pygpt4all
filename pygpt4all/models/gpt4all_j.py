@@ -14,7 +14,8 @@ import logging
 import pygptj.model
 from pygptj._logger import set_log_level
 
-from base_model import BaseModel
+from pygpt4all.models.base_model import BaseModel
+from pygpt4all.enums import ModelType
 
 
 class GPT4All_J(pygptj.model.Model, BaseModel):
@@ -32,6 +33,8 @@ class GPT4All_J(pygptj.model.Model, BaseModel):
     model.generate("Once upon a time, ", n_predict=55, new_text_callback=new_text_callback)
     ```
     """
+
+    model_type = ModelType.GPT_J
 
     def __init__(self,
                  model_path: str,
