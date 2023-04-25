@@ -131,7 +131,7 @@ long_description = (this_directory / "README.md").read_text()
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
     name="pyllamacpp",
-    version="1.0.7",
+    version="1.0.8",
     author="abdeladim-s",
     description="Python bindings for llama.cpp + gpt4all",
     long_description=long_description,

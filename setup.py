@@ -26,6 +26,6 @@ setup(
     #     'Source': '',
     #     'Tracker': '',
     # },
-    install_requires=["pyllamacpp==1.0.6", "pygptj"],
+    install_requires=["pyllamacpp==1.0.8", "pygptj"],
     # extras_require={"all": [""]},
 )

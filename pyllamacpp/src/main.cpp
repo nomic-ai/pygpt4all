@@ -33,6 +33,7 @@ static bool is_interacting = false;
 py::function py_llama_progress_callback;
 
 struct llama_context_wrapper {
+    bool continue_gen = true;     // Continue text generation
     llama_context* ptr;
 };
 
@@ -165,9 +166,20 @@ std::string gpt_random_prompt(std::mt19937 & rng) {
     return "The";
 }
 
+// This is a function to return the tokens number
+// Needed by front end to optimize data size
+int llama_get_nb_tokens(struct llama_context_wrapper * ctx_w, std::string prompt){
+    // tokenize the prompt
+    auto embd_inp = ::llama_tokenize_wrapper(ctx_w, prompt, true);
+    return embd_inp.size();
+}
+
 // quick and dirty implementation! just copied from main.cpp with some minor changes
 // Needs lots of improvements
 int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::function new_text_callback, py::function grab_text_callback, bool verbose){
+
+    // Set continue_gen to true
+    ctx_w->continue_gen = true;
 
     if (params.perplexity) {
         printf("\n************\n");
@@ -447,7 +459,12 @@ int llama_generate(struct llama_context_wrapper * ctx_w, gpt_params params, py::
         if (!input_noecho) {
             for (auto id : embd) {
 //                printf("%s", llama_token_to_str(ctx, id));
+                // If the host wants to stop generation, we should stop
                 new_text_callback(llama_token_to_str(ctx, id));
+                if(!ctx_w->continue_gen){
+                    llama_print_timings(ctx);
+                    return 0;
+                }
             }
             fflush(stdout);
         }
@@ -606,7 +623,8 @@ PYBIND11_MODULE(_pyllamacpp, m) {
         .def_readwrite("verbose_prompt", &gpt_params::verbose_prompt)
         .def_readwrite("antiprompt", &gpt_params::antiprompt);
 
-    py::class_<llama_context_wrapper>(m,"llama_context");
+    py::class_<llama_context_wrapper>(m,"llama_context")
+        .def_readwrite("continue_gen", &llama_context_wrapper::continue_gen);
 
     py::class_<llama_token_data>(m,"llama_token_data")
         .def(py::init<>())
@@ -657,9 +675,8 @@ PYBIND11_MODULE(_pyllamacpp, m) {
 
     m.def("llama_print_system_info", &llama_print_system_info);
 
+    m.def("llama_get_nb_tokens", &llama_get_nb_tokens);
     m.def("llama_generate", &llama_generate);
-
-
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
