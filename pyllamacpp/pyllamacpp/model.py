@@ -75,13 +75,16 @@ class Model:
         for param in kwargs:
             setattr(params, param, kwargs[param])
 
-    def _call_new_text_callback(self, text) -> None:
+    def _call_new_text_callback(self, text) -> bool:
         """
         Internal new_segment_callback, it just calls the user's callback with the `Segment` object
-        :return: None
+        :return: bool (continue generation?)
         """
+        # the callback returns either a boolean or a None
         if Model._new_text_callback is not None:
-            Model._new_text_callback(text)
+            continue_gen = Model._new_text_callback(text)
+            if not(continue_gen is None or continue_gen==True):
+                self._ctx.continue_gen = False
         # save res
         self.res += text
 
@@ -90,9 +93,18 @@ class Model:
             return Model._grab_text_callback()
         return None
 
+    def num_tokens(self, prompt:str):
+        """
+        Computes the number of tokens from the prompt text
+
+        :param prompt: the prompt
+        :return: the prompt
+        """
+        return pp.llama_get_nb_tokens(self._ctx, prompt)
+
     def generate(self, prompt: str,
                  n_predict: int = 128,
-                 new_text_callback: Callable[[str], None] = None,
+                 new_text_callback: Callable[[str], None] = bool,
                  grab_text_callback: Callable[[], str] = None,
                  verbose: bool = False,
                  **gpt_params) -> str:
