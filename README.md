@@ -17,7 +17,7 @@ pip install pygpt4all
 
 ### GPT4All model
 
-Download a GPT4All model from https://the-eye.eu/public/AI/models/nomic-ai/gpt4all/
+Download a GPT4All model from http://gpt4all.io/models/ggml-gpt4all-l13b-snoozy.bin
 
 ```python
 from pygpt4all.models.gpt4all import GPT4All
@@ -25,7 +25,7 @@ from pygpt4all.models.gpt4all import GPT4All
 def new_text_callback(text):
     print(text, end="")
 
-model = GPT4All('./models/ggml-gpt4all-j.bin')
+model = GPT4All('./models/ggml-gpt4all-l13b-snoozy.bin')
 model.generate("Once upon a time, ", n_predict=55, new_text_callback=new_text_callback)
 ```
 
@@ -39,7 +39,7 @@ from pygpt4all.models.gpt4all_j import GPT4All_J
 def new_text_callback(text):
     print(text, end="")
 
-model = GPT4All_J('./models/ggml-gpt4all-j.bin')
+model = GPT4All_J('./models/ggml-gpt4all-j-v1.3-groovy.bin')
 model.generate("Once upon a time, ", n_predict=55, new_text_callback=new_text_callback)
 ```
 
