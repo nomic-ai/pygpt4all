@@ -22,7 +22,7 @@ setup(
     long_description_content_type="text/markdown",
     license='MIT',
     project_urls={
-        'Documentation': 'nomic-ai.github.io/pygpt4all/',
+        'Documentation': 'https://nomic-ai.github.io/pygpt4all/',
         'Source': 'https://github.com/nomic-ai/pygpt4all',
         'Tracker': 'https://github.com/nomic-ai/pygpt4all/issues',
     },
