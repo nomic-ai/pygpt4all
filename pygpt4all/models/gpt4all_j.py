@@ -23,21 +23,29 @@ class GPT4All_J(pygptj.model.Model):
     ```python
     from pygpt4all.models.gpt4all_j import GPT4All_J
 
-    def new_text_callback(text):
-        print(text, end="")
-
-    model = GPT4All_J('./models/ggml-gpt4all-j.bin')
-    model.generate("Once upon a time, ", n_predict=55, new_text_callback=new_text_callback)
+    model = GPT4All_J('.path/to/gpr4all-j/model')
+    for token in model.generate("Tell me a joke ?"):
+        print(token, end='', flush=True)
     ```
     """
 
     def __init__(self,
                  model_path: str,
-                 log_level: int = logging.INFO):
+                 prompt_context: str = '',
+                 prompt_prefix: str = '',
+                 prompt_suffix: str = '',
+                 log_level: int = logging.ERROR):
         """
-        :param model_path: The path to a gpt4all `ggml` model
-        :param log_level: logging level, set to INFO by default
+        :param model_path: The path to a gpt4all-j model
+        :param prompt_context: the global context of the interaction
+        :param prompt_prefix: the prompt prefix
+        :param prompt_suffix: the prompt suffix
+        :param log_level: logging level
         """
         # set logging level
         set_log_level(log_level)
-        super(GPT4All_J, self).__init__(model_path=model_path, log_level=log_level)
+        super(GPT4All_J, self).__init__(model_path=model_path,
+                                        prompt_context=prompt_context,
+                                        prompt_prefix=prompt_prefix,
+                                        prompt_suffix=prompt_suffix,
+                                        log_level=log_level)

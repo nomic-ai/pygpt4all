@@ -10,7 +10,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="pygpt4all",
-    version="1.0.1",
+    version="1.1.0",
     author="Abdeladim Sadiki",
     description="Official Python CPU inference for GPT4All language models based on llama.cpp and ggml",
     long_description=long_description,
@@ -21,11 +21,10 @@ setup(
     package_dir={'': '.'},
     long_description_content_type="text/markdown",
     license='MIT',
-    # project_urls={
-    #     'Documentation': '',
-    #     'Source': '',
-    #     'Tracker': '',
-    # },
-    install_requires=["pyllamacpp==1.0.7", "pygptj"],
-    # extras_require={"all": [""]},
+    project_urls={
+        'Documentation': 'nomic-ai.github.io/pygpt4all/',
+        'Source': 'https://github.com/nomic-ai/pygpt4all',
+        'Tracker': 'https://github.com/nomic-ai/pygpt4all/issues',
+    },
+    install_requires=["pyllamacpp", "pygptj"],
 )
