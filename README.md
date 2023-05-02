@@ -21,12 +21,7 @@ pip install pygpt4all
 
 # Tutorial
 
-You will need first to download the model weights
-
-| Model     | Download link                                            |
-|-----------|----------------------------------------------------------|
-| GPT4ALL   | http://gpt4all.io/models/ggml-gpt4all-l13b-snoozy.bin    |
-| GPT4ALL-j | https://gpt4all.io/models/ggml-gpt4all-j-v1.3-groovy.bin |                                                                     
+You will need first to download the model weights, you can find and download all the supported models from [here](https://github.com/nomic-ai/gpt4all-chat#manual-download-of-models).
 
 ### Model instantiation
 Once the weights are downloaded, you can instantiate the models as follows:
