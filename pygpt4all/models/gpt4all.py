@@ -49,7 +49,7 @@ class GPT4All(pyllamacpp.model.Model):
         :param prompt_context: the global context of the interaction
         :param prompt_prefix: the prompt prefix
         :param prompt_suffix: the prompt suffix
-        :param log_level: logging level, set to INFO by default
+        :param log_level: logging level, set to ERROR by default
         :param n_ctx: LLaMA context
         :param seed: random seed
         :param n_parts: LLaMA n_parts
