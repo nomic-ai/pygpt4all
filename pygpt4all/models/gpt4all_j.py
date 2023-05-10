@@ -40,7 +40,7 @@ class GPT4All_J(pygptj.model.Model):
         :param prompt_context: the global context of the interaction
         :param prompt_prefix: the prompt prefix
         :param prompt_suffix: the prompt suffix
-        :param log_level: logging level
+        :param log_level: logging level, set to ERROR by default
         """
         # set logging level
         set_log_level(log_level)
