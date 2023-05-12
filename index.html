@@ -1,0 +1,3549 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
+    
+    
+      
+        <title>PyGPT4All</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pygpt4all-api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="PyGPT4All" class="md-header__button md-logo" aria-label="PyGPT4All" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PyGPT4All
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PyGPT4All API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nomic-ai/pygpt4all" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nomic-ai/pygpt4all
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="." class="md-tabs__link md-tabs__link--active">
+      PyGPT4All API Reference
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="PyGPT4All" class="md-nav__button md-logo" aria-label="PyGPT4All" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    PyGPT4All
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nomic-ai/pygpt4all" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nomic-ai/pygpt4all
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PyGPT4All API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        PyGPT4All API Reference
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pygpt4all.models.gpt4all" class="md-nav__link">
+    gpt4all
+  </a>
+  
+    <nav class="md-nav" aria-label="gpt4all">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pygpt4all.models.gpt4all.GPT4All" class="md-nav__link">
+    GPT4All
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pygpt4all.models.gpt4all_j" class="md-nav__link">
+    gpt4all_j
+  </a>
+  
+    <nav class="md-nav" aria-label="gpt4all_j">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pygpt4all.models.gpt4all_j.GPT4All_J" class="md-nav__link">
+    GPT4All_J
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bases" class="md-nav__link">
+    Bases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyllamacpp.model" class="md-nav__link">
+    model
+  </a>
+  
+    <nav class="md-nav" aria-label="model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyllamacpp.model.Model" class="md-nav__link">
+    Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyllamacpp.model.Model.reset" class="md-nav__link">
+    reset()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyllamacpp.model.Model.tokenize" class="md-nav__link">
+    tokenize()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyllamacpp.model.Model.detokenize" class="md-nav__link">
+    detokenize()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyllamacpp.model.Model.generate" class="md-nav__link">
+    generate()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyllamacpp.model.Model.cpp_generate" class="md-nav__link">
+    cpp_generate()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pyllamacpp.model.Model.get_params" class="md-nav__link">
+    get_params()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pygptj.model" class="md-nav__link">
+    model
+  </a>
+  
+    <nav class="md-nav" aria-label="model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pygptj.model.Model" class="md-nav__link">
+    Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pygptj.model.Model.generate" class="md-nav__link">
+    generate()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pygptj.model.Model.cpp_generate" class="md-nav__link">
+    cpp_generate()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pygptj.model.Model.braindump" class="md-nav__link">
+    braindump()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pygptj.model.Model.reset" class="md-nav__link">
+    reset()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pygptj.model.Model.get_params" class="md-nav__link">
+    get_params()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="pygpt4all-api-reference">PyGPT4All API Reference</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="pygpt4all.models.gpt4all" class="doc doc-heading">
+          <span class="doc doc-object-name doc-module-name">pygpt4all.models.gpt4all</span>
+
+
+</h2>
+
+  <div class="doc doc-contents first">
+  
+      <p>GPT4ALL with <code>llama.cpp</code> backend through <a href="https://github.com/abdeladim-s/pyllamacpp">pyllamacpp</a></p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pygpt4all.models.gpt4all.GPT4All" class="doc doc-heading">
+        <span class="doc doc-object-name doc-class-name">GPT4All</span>
+
+
+</h3>
+<div class="highlight"><pre><span></span><code><span class="n">GPT4All</span><span class="p">(</span>
+    <span class="n">model_path</span><span class="p">,</span>
+    <span class="n">prompt_context</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">prompt_prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">prompt_suffix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">log_level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
+    <span class="n">n_ctx</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">n_parts</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">f16_kv</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">logits_all</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">vocab_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">use_mlock</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">embedding</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="pyllamacpp.model">pyllamacpp</span>.<span title="pyllamacpp.model.model">model</span>.<span title="pyllamacpp.model.Model">Model</span></code></p>
+
+  
+      <p>GPT4All model</p>
+<p>Base: <a href="#pygpt4all.models.gpt4all.GPT4All--pyllamacpp.model.Model">pyllamacpp.model.Model</a></p>
+<p>Example usage
+<div class="language-python highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pygpt4all.models.gpt4all</span> <span class="kn">import</span> <span class="n">GPT4All</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">GPT4All</span><span class="p">(</span><span class="s1">&#39;path/to/gpt4all/model&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s2">&quot;Tell me a joke ?&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></p>
+
+  
+      
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>model_path</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the path to the gpt4all model</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_context</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the global context of the interaction</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_prefix</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt prefix</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_suffix</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt suffix</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>log_level</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>logging level, set to ERROR by default</p></td>
+          <td>
+                <code>logging.ERROR</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_ctx</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>LLaMA context</p></td>
+          <td>
+                <code>512</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>seed</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>random seed</p></td>
+          <td>
+                <code>0</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_parts</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>LLaMA n_parts</p></td>
+          <td>
+                <code>-1</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>f16_kv</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>use fp16 for KV cache</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>logits_all</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>the llama_eval() call computes all logits, not just the last one</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>vocab_only</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>only load the vocabulary, no weights</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>use_mlock</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>force system to keep model in RAM</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>embedding</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>embedding mode only</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>pygpt4all/models/gpt4all.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+             <span class="n">prompt_context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">prompt_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">prompt_suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">log_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
+             <span class="n">n_ctx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+             <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+             <span class="n">n_parts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+             <span class="n">f16_kv</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">logits_all</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">vocab_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">use_mlock</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">embedding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param model_path: the path to the gpt4all model</span>
+<span class="sd">    :param prompt_context: the global context of the interaction</span>
+<span class="sd">    :param prompt_prefix: the prompt prefix</span>
+<span class="sd">    :param prompt_suffix: the prompt suffix</span>
+<span class="sd">    :param log_level: logging level, set to ERROR by default</span>
+<span class="sd">    :param n_ctx: LLaMA context</span>
+<span class="sd">    :param seed: random seed</span>
+<span class="sd">    :param n_parts: LLaMA n_parts</span>
+<span class="sd">    :param f16_kv: use fp16 for KV cache</span>
+<span class="sd">    :param logits_all: the llama_eval() call computes all logits, not just the last one</span>
+<span class="sd">    :param vocab_only: only load the vocabulary, no weights</span>
+<span class="sd">    :param use_mlock: force system to keep model in RAM</span>
+<span class="sd">    :param embedding: embedding mode only</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># set logging level</span>
+    <span class="n">set_log_level</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">GPT4All</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">,</span>
+                                  <span class="n">prompt_context</span><span class="o">=</span><span class="n">prompt_context</span><span class="p">,</span>
+                                  <span class="n">prompt_prefix</span><span class="o">=</span><span class="n">prompt_prefix</span><span class="p">,</span>
+                                  <span class="n">prompt_suffix</span><span class="o">=</span><span class="n">prompt_suffix</span><span class="p">,</span>
+                                  <span class="n">log_level</span><span class="o">=</span><span class="n">log_level</span><span class="p">,</span>
+                                  <span class="n">n_ctx</span><span class="o">=</span><span class="n">n_ctx</span><span class="p">,</span>
+                                  <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
+                                  <span class="n">n_parts</span><span class="o">=</span><span class="n">n_parts</span><span class="p">,</span>
+                                  <span class="n">f16_kv</span><span class="o">=</span><span class="n">f16_kv</span><span class="p">,</span>
+                                  <span class="n">logits_all</span><span class="o">=</span><span class="n">logits_all</span><span class="p">,</span>
+                                  <span class="n">vocab_only</span><span class="o">=</span><span class="n">vocab_only</span><span class="p">,</span>
+                                  <span class="n">use_mlock</span><span class="o">=</span><span class="n">use_mlock</span><span class="p">,</span>
+                                  <span class="n">embedding</span><span class="o">=</span><span class="n">embedding</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="pygpt4all.models.gpt4all_j" class="doc doc-heading">
+          <span class="doc doc-object-name doc-module-name">pygpt4all.models.gpt4all_j</span>
+
+
+</h2>
+
+  <div class="doc doc-contents first">
+  
+      <p>GPT4ALL with <code>ggml</code> backend</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pygpt4all.models.gpt4all_j.GPT4All_J" class="doc doc-heading">
+        <span class="doc doc-object-name doc-class-name">GPT4All_J</span>
+
+
+</h3>
+<div class="highlight"><pre><span></span><code><span class="n">GPT4All_J</span><span class="p">(</span>
+    <span class="n">model_path</span><span class="p">,</span>
+    <span class="n">prompt_context</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">prompt_prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">prompt_suffix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">log_level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="pygptj.model">pygptj</span>.<span title="pygptj.model.model">model</span>.<span title="pygptj.model.Model">Model</span></code></p>
+
+  
+      <p>GPT4ALL-J model</p>
+<p>Example usage
+<div class="language-python highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pygpt4all.models.gpt4all_j</span> <span class="kn">import</span> <span class="n">GPT4All_J</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">GPT4All_J</span><span class="p">(</span><span class="s1">&#39;.path/to/gpr4all-j/model&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s2">&quot;Tell me a joke ?&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></p>
+
+  
+      
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>model_path</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The path to a gpt4all-j model</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_context</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the global context of the interaction</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_prefix</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt prefix</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_suffix</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt suffix</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>log_level</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>logging level, set to ERROR by default</p></td>
+          <td>
+                <code>logging.ERROR</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>pygpt4all/models/gpt4all_j.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+             <span class="n">prompt_context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">prompt_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">prompt_suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">log_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param model_path: The path to a gpt4all-j model</span>
+<span class="sd">    :param prompt_context: the global context of the interaction</span>
+<span class="sd">    :param prompt_prefix: the prompt prefix</span>
+<span class="sd">    :param prompt_suffix: the prompt suffix</span>
+<span class="sd">    :param log_level: logging level, set to ERROR by default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># set logging level</span>
+    <span class="n">set_log_level</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">GPT4All_J</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">,</span>
+                                    <span class="n">prompt_context</span><span class="o">=</span><span class="n">prompt_context</span><span class="p">,</span>
+                                    <span class="n">prompt_prefix</span><span class="o">=</span><span class="n">prompt_prefix</span><span class="p">,</span>
+                                    <span class="n">prompt_suffix</span><span class="o">=</span><span class="n">prompt_suffix</span><span class="p">,</span>
+                                    <span class="n">log_level</span><span class="o">=</span><span class="n">log_level</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div><hr />
+<h2 id="bases">Bases</h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="pyllamacpp.model" class="doc doc-heading">
+          <span class="doc doc-object-name doc-module-name">pyllamacpp.model</span>
+
+
+</h2>
+
+  <div class="doc doc-contents first">
+  
+      <p>This module contains a simple Python API around <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a></p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pyllamacpp.model.Model" class="doc doc-heading">
+        <span class="doc doc-object-name doc-class-name">Model</span>
+
+
+</h3>
+<div class="highlight"><pre><span></span><code><span class="n">Model</span><span class="p">(</span>
+    <span class="n">model_path</span><span class="p">,</span>
+    <span class="n">prompt_context</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">prompt_prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">prompt_suffix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">log_level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
+    <span class="n">n_ctx</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">n_parts</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">f16_kv</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">logits_all</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">vocab_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">use_mlock</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">embedding</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A simple Python class on top of llama.cpp</p>
+<p>Example usage
+<div class="language-python highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyllamacpp.model</span> <span class="kn">import</span> <span class="n">Model</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">ggml_model</span><span class="o">=</span><span class="s1">&#39;path/to/ggml/model&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s2">&quot;Tell me a joke ?&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></p>
+
+  
+      
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>model_path</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the path to the ggml model</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_context</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the global context of the interaction</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_prefix</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt prefix</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_suffix</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt suffix</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>log_level</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>logging level, set to INFO by default</p></td>
+          <td>
+                <code>logging.ERROR</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_ctx</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>LLaMA context</p></td>
+          <td>
+                <code>512</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>seed</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>random seed</p></td>
+          <td>
+                <code>0</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_parts</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>LLaMA n_parts</p></td>
+          <td>
+                <code>-1</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>f16_kv</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>use fp16 for KV cache</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>logits_all</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>the llama_eval() call computes all logits, not just the last one</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>vocab_only</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>only load the vocabulary, no weights</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>use_mlock</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>force system to keep model in RAM</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>embedding</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>embedding mode only</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pyllamacpp/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+             <span class="n">prompt_context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">prompt_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">prompt_suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">log_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
+             <span class="n">n_ctx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+             <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+             <span class="n">n_parts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+             <span class="n">f16_kv</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">logits_all</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">vocab_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">use_mlock</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">embedding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param model_path: the path to the ggml model</span>
+<span class="sd">    :param prompt_context: the global context of the interaction</span>
+<span class="sd">    :param prompt_prefix: the prompt prefix</span>
+<span class="sd">    :param prompt_suffix: the prompt suffix</span>
+<span class="sd">    :param log_level: logging level, set to INFO by default</span>
+<span class="sd">    :param n_ctx: LLaMA context</span>
+<span class="sd">    :param seed: random seed</span>
+<span class="sd">    :param n_parts: LLaMA n_parts</span>
+<span class="sd">    :param f16_kv: use fp16 for KV cache</span>
+<span class="sd">    :param logits_all: the llama_eval() call computes all logits, not just the last one</span>
+<span class="sd">    :param vocab_only: only load the vocabulary, no weights</span>
+<span class="sd">    :param use_mlock: force system to keep model in RAM</span>
+<span class="sd">    :param embedding: embedding mode only</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># set logging level</span>
+    <span class="n">set_log_level</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2"> not found!&quot;</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_context_default_params</span><span class="p">()</span>
+    <span class="c1"># update llama_params</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span><span class="o">.</span><span class="n">n_ctx</span> <span class="o">=</span> <span class="n">n_ctx</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span><span class="o">.</span><span class="n">n_parts</span> <span class="o">=</span> <span class="n">n_parts</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span><span class="o">.</span><span class="n">f16_kv</span> <span class="o">=</span> <span class="n">f16_kv</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span><span class="o">.</span><span class="n">logits_all</span> <span class="o">=</span> <span class="n">logits_all</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span><span class="o">.</span><span class="n">vocab_only</span> <span class="o">=</span> <span class="n">vocab_only</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span><span class="o">.</span><span class="n">use_mlock</span> <span class="o">=</span> <span class="n">use_mlock</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">embedding</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_init_from_file</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">llama_params</span><span class="p">)</span>
+
+    <span class="c1"># gpt params</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gpt_params</span><span class="p">()</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_n_ctx</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_n_ctx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_last_n_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_ctx</span>  <span class="c1"># n_ctx elements</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_cntext</span> <span class="o">=</span> <span class="n">prompt_context</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_prefix</span> <span class="o">=</span> <span class="n">prompt_prefix</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_suffix</span> <span class="o">=</span> <span class="n">prompt_suffix</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_context_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_prefix_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_suffix_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pyllamacpp.model.Model.reset" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">reset</span>
+
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">reset</span><span class="p">()</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Resets the context</p>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pyllamacpp/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Resets the context&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_context_tokens</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prompt_cntext</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_prefix_tokens</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prompt_prefix</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_suffix_tokens</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prompt_suffix</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_last_n_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_ctx</span>  <span class="c1"># n_ctx elements</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pyllamacpp.model.Model.tokenize" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">tokenize</span>
+
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a list of tokens for the text</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>text</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>text to be tokenized</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+          </td>
+          <td><p>List of tokens</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pyllamacpp/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a list of tokens for the text</span>
+<span class="sd">    :param text: text to be tokenized</span>
+<span class="sd">    :return: List of tokens</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pyllamacpp.model.Model.detokenize" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">detokenize</span>
+
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">detokenize</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a list of tokens for the text</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>text</code></td>
+          <td>
+          </td>
+          <td><p>text to be tokenized</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+          </td>
+          <td><p>A string representing the text extracted from the tokens</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pyllamacpp/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">detokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a list of tokens for the text</span>
+<span class="sd">    :param text: text to be tokenized</span>
+<span class="sd">    :return: A string representing the text extracted from the tokens</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_tokens_to_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span> <span class="n">tokens</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pyllamacpp.model.Model.generate" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">generate</span>
+
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">generate</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="p">,</span>
+    <span class="n">n_predict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">antiprompt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">infinite_generation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">n_threads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">repeat_last_n</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">top_k</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+    <span class="n">temp</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">repeat_penalty</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Runs llama.cpp inference and yields new predicted tokens from the prompt provided as input</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>prompt</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The prompt :)</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_predict</code></td>
+          <td>
+                <code><span title="typing.Union">Union</span>[None, int]</code>
+          </td>
+          <td><p>if n_predict is not None, the inference will stop if it reaches <code>n_predict</code> tokens, otherwise it will continue until <code>EOS</code></p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>antiprompt</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>aka the stop word, the generation will stop if this word is predicted, keep it None to handle it in your own way</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>infinite_generation</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>set it to <code>True</code> to make the generation go infinitely</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_threads</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The number of CPU threads</p></td>
+          <td>
+                <code>4</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>repeat_last_n</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>last n tokens to penalize</p></td>
+          <td>
+                <code>64</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>top_k</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>top K sampling parameter</p></td>
+          <td>
+                <code>40</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>top_p</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>top P sampling parameter</p></td>
+          <td>
+                <code>0.95</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>temp</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>temperature</p></td>
+          <td>
+                <code>0.8</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>repeat_penalty</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>repeat penalty sampling parameter</p></td>
+          <td>
+                <code>1.1</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.Generator">Generator</span></code>
+          </td>
+          <td><p>Tokens generator</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pyllamacpp/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+             <span class="n">n_predict</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">antiprompt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">infinite_generation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+             <span class="n">n_threads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+             <span class="n">repeat_last_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
+             <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
+             <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
+             <span class="n">temp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+             <span class="n">repeat_penalty</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Runs llama.cpp inference and yields new predicted tokens from the prompt provided as input</span>
+
+<span class="sd">    :param prompt: The prompt :)</span>
+<span class="sd">    :param n_predict: if n_predict is not None, the inference will stop if it reaches `n_predict` tokens, otherwise</span>
+<span class="sd">                      it will continue until `EOS`</span>
+<span class="sd">    :param antiprompt: aka the stop word, the generation will stop if this word is predicted,</span>
+<span class="sd">                       keep it None to handle it in your own way</span>
+<span class="sd">    :param infinite_generation: set it to `True` to make the generation go infinitely</span>
+<span class="sd">    :param n_threads: The number of CPU threads</span>
+<span class="sd">    :param repeat_last_n: last n tokens to penalize</span>
+<span class="sd">    :param top_k: top K sampling parameter</span>
+<span class="sd">    :param top_p: top P sampling parameter</span>
+<span class="sd">    :param temp: temperature</span>
+<span class="sd">    :param repeat_penalty: repeat penalty sampling parameter</span>
+<span class="sd">    :return: Tokens generator</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">input_tokens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_prefix_tokens</span> <span class="o">+</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span> <span class="n">prompt</span><span class="p">,</span>
+                                                                  <span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_suffix_tokens</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_tokens</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_ctx</span> <span class="o">-</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Prompt too long!&#39;</span><span class="p">)</span>
+    <span class="n">predicted_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">predicted_token</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># add global context for the first time</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_context_tokens</span><span class="p">:</span>
+            <span class="n">predicted_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_n_tokens</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_n_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
+
+    <span class="c1"># consume input tokens</span>
+    <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">input_tokens</span><span class="p">:</span>
+        <span class="n">predicted_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_n_tokens</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_n_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
+
+    <span class="n">n_remain</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">antiprompt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sequence_queue</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">stop_word</span> <span class="o">=</span> <span class="n">antiprompt</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">while</span> <span class="n">infinite_generation</span> <span class="ow">or</span> <span class="n">predicted_token</span> <span class="o">!=</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_token_eos</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">predicted_tokens</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">pp</span><span class="o">.</span><span class="n">llama_eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span>
+                              <span class="n">predicted_tokens</span><span class="p">,</span>
+                              <span class="nb">len</span><span class="p">(</span><span class="n">predicted_tokens</span><span class="p">),</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span><span class="p">,</span>
+                              <span class="n">n_threads</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;failed to eval the model!&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">predicted_tokens</span><span class="p">)</span>
+            <span class="n">predicted_tokens</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+        <span class="n">predicted_token</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_sample_top_p_top_k</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">_last_n_tokens</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_ctx</span> <span class="o">-</span> <span class="n">repeat_last_n</span><span class="p">:],</span>
+                                                      <span class="n">repeat_last_n</span><span class="p">,</span>
+                                                      <span class="n">top_k</span><span class="p">,</span>
+                                                      <span class="n">top_p</span><span class="p">,</span>
+                                                      <span class="n">temp</span><span class="p">,</span>
+                                                      <span class="n">repeat_penalty</span><span class="p">)</span>
+
+        <span class="n">predicted_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">predicted_token</span><span class="p">)</span>
+        <span class="c1"># tokens come as raw undecoded bytes,</span>
+        <span class="c1"># and we decode them, replacing those that can&#39;t be decoded.</span>
+        <span class="c1"># i decoded here for fear of breaking the stopword logic, </span>
+        <span class="n">token_str</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">llama_token_to_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span> <span class="n">predicted_token</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="s2">&quot;replace&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">antiprompt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">token_str</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+                <span class="n">sequence_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token_str</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence_queue</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">stop_word</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sequence_queue</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()):</span>
+                    <span class="n">sequence_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token_str</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sequence_queue</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">stop_word</span><span class="p">:</span>
+                        <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># consume sequence queue tokens</span>
+                    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence_queue</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="k">yield</span> <span class="n">sequence_queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">sequence_queue</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_n_tokens</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_n_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">predicted_token</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">token_str</span>
+        <span class="k">if</span> <span class="n">n_predict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">n_remain</span> <span class="o">==</span> <span class="n">n_predict</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">n_remain</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pyllamacpp.model.Model.cpp_generate" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">cpp_generate</span>
+
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">cpp_generate</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="p">,</span>
+    <span class="n">n_predict</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">new_text_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_threads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">repeat_last_n</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">top_k</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+    <span class="n">temp</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">repeat_penalty</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>
+    <span class="n">n_batch</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">n_keep</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">interactive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">antiprompt</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">ignore_eos</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">instruct</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">verbose_prompt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>The generate function from <code>llama.cpp</code></p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>prompt</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_predict</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>number of tokens to generate</p></td>
+          <td>
+                <code>128</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>new_text_callback</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span>[[bytes], None]</code>
+          </td>
+          <td><p>a callback function called when new text is generated, default <code>None</code></p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_threads</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The number of CPU threads</p></td>
+          <td>
+                <code>4</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>repeat_last_n</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>last n tokens to penalize</p></td>
+          <td>
+                <code>64</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>top_k</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>top K sampling parameter</p></td>
+          <td>
+                <code>40</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>top_p</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>top P sampling parameter</p></td>
+          <td>
+                <code>0.95</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>temp</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>temperature</p></td>
+          <td>
+                <code>0.8</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>repeat_penalty</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>repeat penalty sampling parameter</p></td>
+          <td>
+                <code>1.1</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_batch</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>GPT params n_batch</p></td>
+          <td>
+                <code>8</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_keep</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>GPT params n_keep</p></td>
+          <td>
+                <code>0</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>interactive</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>interactive communication</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>antiprompt</code></td>
+          <td>
+                <code><span title="typing.List">List</span></code>
+          </td>
+          <td><p>list of anti prompts</p></td>
+          <td>
+                <code>[]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>ignore_eos</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>Ignore LLaMA EOS</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>instruct</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>Activate instruct mode</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>verbose_prompt</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>verbose prompt</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the new generated text</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pyllamacpp/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">cpp_generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">n_predict</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span>
+                 <span class="n">new_text_callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">bytes</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">n_threads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+                 <span class="n">repeat_last_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
+                 <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
+                 <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
+                 <span class="n">temp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+                 <span class="n">repeat_penalty</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.10</span><span class="p">,</span>
+                 <span class="n">n_batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+                 <span class="n">n_keep</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="n">interactive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">antiprompt</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="p">[],</span>
+                 <span class="n">ignore_eos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">instruct</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">verbose_prompt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The generate function from `llama.cpp`</span>
+
+<span class="sd">    :param prompt: the prompt</span>
+<span class="sd">    :param n_predict: number of tokens to generate</span>
+<span class="sd">    :param new_text_callback: a callback function called when new text is generated, default `None`</span>
+<span class="sd">    :param n_threads: The number of CPU threads</span>
+<span class="sd">    :param repeat_last_n: last n tokens to penalize</span>
+<span class="sd">    :param top_k: top K sampling parameter</span>
+<span class="sd">    :param top_p: top P sampling parameter</span>
+<span class="sd">    :param temp: temperature</span>
+<span class="sd">    :param repeat_penalty: repeat penalty sampling parameter</span>
+<span class="sd">    :param n_batch: GPT params n_batch</span>
+<span class="sd">    :param n_keep: GPT params n_keep</span>
+<span class="sd">    :param interactive: interactive communication</span>
+<span class="sd">    :param antiprompt: list of anti prompts</span>
+<span class="sd">    :param ignore_eos: Ignore LLaMA EOS</span>
+<span class="sd">    :param instruct: Activate instruct mode</span>
+<span class="sd">    :param verbose_prompt: verbose prompt</span>
+<span class="sd">    :return: the new generated text</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">prompt</span> <span class="o">=</span> <span class="n">prompt</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">n_predict</span> <span class="o">=</span> <span class="n">n_predict</span>
+    <span class="c1"># update other params if any</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">n_threads</span> <span class="o">=</span> <span class="n">n_threads</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">repeat_last_n</span> <span class="o">=</span> <span class="n">repeat_last_n</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">top_k</span> <span class="o">=</span> <span class="n">top_k</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">top_p</span> <span class="o">=</span> <span class="n">top_p</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">repeat_penalty</span> <span class="o">=</span> <span class="n">repeat_penalty</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">n_batch</span> <span class="o">=</span> <span class="n">n_batch</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">n_keep</span> <span class="o">=</span> <span class="n">n_keep</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">interactive</span> <span class="o">=</span> <span class="n">interactive</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">antiprompt</span> <span class="o">=</span> <span class="n">antiprompt</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">ignore_eos</span> <span class="o">=</span> <span class="n">ignore_eos</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">instruct</span> <span class="o">=</span> <span class="n">instruct</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">verbose_prompt</span> <span class="o">=</span> <span class="n">verbose_prompt</span>
+
+    <span class="c1"># assign new_text_callback</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">Model</span><span class="o">.</span><span class="n">_new_text_callback</span> <span class="o">=</span> <span class="n">new_text_callback</span>
+
+    <span class="c1"># run the prediction</span>
+    <span class="n">pp</span><span class="o">.</span><span class="n">llama_generate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_new_text_callback</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">res</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pyllamacpp.model.Model.get_params" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">get_params</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">get_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a <code>dict</code> representation of the params</p>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>dict</code>
+          </td>
+          <td><p>params dict</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pyllamacpp/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">get_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a `dict` representation of the params</span>
+<span class="sd">    :return: params dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">param</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="pygptj.model" class="doc doc-heading">
+          <span class="doc doc-object-name doc-module-name">pygptj.model</span>
+
+
+</h2>
+
+  <div class="doc doc-contents first">
+  
+      <p>This module contains a simple Python API around <a href="https://github.com/ggerganov/ggml/tree/master/examples/gpt-j/main.cpp">gpt-j</a></p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pygptj.model.Model" class="doc doc-heading">
+        <span class="doc doc-object-name doc-class-name">Model</span>
+
+
+</h3>
+<div class="highlight"><pre><span></span><code><span class="n">Model</span><span class="p">(</span>
+    <span class="n">model_path</span><span class="p">,</span>
+    <span class="n">prompt_context</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">prompt_prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">prompt_suffix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">log_level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+
+  
+      <p>GPT-J model</p>
+<p>Example usage
+<div class="language-python highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pygptj.model</span> <span class="kn">import</span> <span class="n">Model</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">ggml_model</span><span class="o">=</span><span class="s1">&#39;path/to/ggml/model&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s2">&quot;Tell me a joke ?&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></p>
+
+  
+      
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>model_path</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The path to a gpt-j <code>ggml</code> model</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_context</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the global context of the interaction</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_prefix</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt prefix</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>prompt_suffix</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt suffix</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>log_level</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>logging level</p></td>
+          <td>
+                <code>logging.ERROR</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pygptj/model.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+             <span class="n">prompt_context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">prompt_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">prompt_suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">log_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param model_path: The path to a gpt-j `ggml` model</span>
+<span class="sd">    :param prompt_context: the global context of the interaction</span>
+<span class="sd">    :param prompt_prefix: the prompt prefix</span>
+<span class="sd">    :param prompt_suffix: the prompt suffix</span>
+<span class="sd">    :param log_level: logging level</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># set logging level</span>
+    <span class="n">set_log_level</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_ctx</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2"> not found!&quot;</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">model_path</span> <span class="o">=</span> <span class="n">model_path</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gptj_model</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_vocab</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gpt_vocab</span><span class="p">()</span>
+
+    <span class="c1"># load model</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_load_model</span><span class="p">()</span>
+
+    <span class="c1"># gpt params</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gptj_gpt_params</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">hparams</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gptj_hparams</span><span class="p">()</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">logits</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_cntext</span> <span class="o">=</span> <span class="n">prompt_context</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_prefix</span> <span class="o">=</span> <span class="n">prompt_prefix</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_suffix</span> <span class="o">=</span> <span class="n">prompt_suffix</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_context_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_prefix_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_suffix_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pygptj.model.Model.generate" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">generate</span>
+
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">generate</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="p">,</span>
+    <span class="n">n_predict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">antiprompt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_threads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">top_k</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+    <span class="n">temp</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Runs GPT-J inference and yields new predicted tokens</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>prompt</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The prompt :)</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_predict</code></td>
+          <td>
+                <code><span title="typing.Union">Union</span>[None, int]</code>
+          </td>
+          <td><p>if n_predict is not None, the inference will stop if it reaches <code>n_predict</code> tokens, otherwise it will continue until <code>end of text</code> token</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>antiprompt</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>aka the stop word, the generation will stop if this word is predicted, keep it None to handle it in your own way</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>seed</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>random seed</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_threads</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The number of CPU threads</p></td>
+          <td>
+                <code>4</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>top_k</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>top K sampling parameter</p></td>
+          <td>
+                <code>40</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>top_p</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>top P sampling parameter</p></td>
+          <td>
+                <code>0.9</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>temp</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>temperature</p></td>
+          <td>
+                <code>0.9</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.Generator">Generator</span></code>
+          </td>
+          <td><p>Tokens generator</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pygptj/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+             <span class="n">n_predict</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">antiprompt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="n">n_threads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+             <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
+             <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">,</span>
+             <span class="n">temp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">,</span>
+             <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">     Runs GPT-J inference and yields new predicted tokens</span>
+
+<span class="sd">    :param prompt: The prompt :)</span>
+<span class="sd">    :param n_predict: if n_predict is not None, the inference will stop if it reaches `n_predict` tokens, otherwise</span>
+<span class="sd">                      it will continue until `end of text` token</span>
+<span class="sd">    :param antiprompt: aka the stop word, the generation will stop if this word is predicted,</span>
+<span class="sd">                       keep it None to handle it in your own way</span>
+<span class="sd">    :param seed: random seed</span>
+<span class="sd">    :param n_threads: The number of CPU threads</span>
+<span class="sd">    :param top_k: top K sampling parameter</span>
+<span class="sd">    :param top_p: top P sampling parameter</span>
+<span class="sd">    :param temp: temperature</span>
+
+<span class="sd">    :return: Tokens generator</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">seed</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;seed = </span><span class="si">{</span><span class="n">seed</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">antiprompt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># add the prefix to the context</span>
+        <span class="n">embd_inp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_prefix_tokens</span> <span class="o">+</span> <span class="n">pp</span><span class="o">.</span><span class="n">gpt_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vocab</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_suffix_tokens</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># do not add the prefix again as it is already in the previous generated context</span>
+        <span class="n">embd_inp</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gpt_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vocab</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_suffix_tokens</span>
+
+    <span class="k">if</span> <span class="n">n_predict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">n_predict</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">n_predict</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hparams</span><span class="o">.</span><span class="n">n_ctx</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">embd_inp</span><span class="p">))</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of tokens in prompt = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">embd_inp</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="n">embd</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># add global context for the first time</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_context_tokens</span><span class="p">:</span>
+            <span class="n">embd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
+
+    <span class="c1"># consume input tokens</span>
+    <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">embd_inp</span><span class="p">:</span>
+        <span class="n">embd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
+
+    <span class="c1"># determine the required inference memory per token:</span>
+    <span class="n">mem_per_token</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">logits</span><span class="p">,</span> <span class="n">mem_per_token</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gptj_eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">,</span> <span class="n">n_threads</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">mem_per_token</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">embd</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">antiprompt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sequence_queue</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">stop_word</span> <span class="o">=</span> <span class="n">antiprompt</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">while</span> <span class="nb">id</span> <span class="o">!=</span> <span class="mi">50256</span><span class="p">:</span>  <span class="c1"># end of text token</span>
+        <span class="k">if</span> <span class="n">n_predict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># break the generation if n_predict</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">embd_inp</span><span class="p">)</span> <span class="o">+</span> <span class="n">n_predict</span><span class="p">):</span>
+                <span class="k">break</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># predict</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">embd</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">logits</span><span class="p">,</span> <span class="n">mem_per_token</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gptj_eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">,</span> <span class="n">n_threads</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span><span class="p">,</span> <span class="n">embd</span><span class="p">,</span> <span class="n">mem_per_token</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to predict</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">embd</span><span class="p">)</span>
+        <span class="n">embd</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">embd_inp</span><span class="p">):</span>
+            <span class="c1"># sample next token</span>
+            <span class="n">n_vocab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hparams</span><span class="o">.</span><span class="n">n_vocab</span>
+            <span class="n">t_start_sample_us</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">))</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gpt_sample_top_k_top_p</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vocab</span><span class="p">,</span> <span class="n">logits</span><span class="p">[</span><span class="o">-</span><span class="n">n_vocab</span><span class="p">:],</span> <span class="n">top_k</span><span class="p">,</span> <span class="n">top_p</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">id</span> <span class="o">==</span> <span class="mi">50256</span><span class="p">:</span>  <span class="c1"># end of text token</span>
+                <span class="k">break</span>
+            <span class="c1"># add the token to the context</span>
+            <span class="n">embd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+            <span class="n">token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vocab</span><span class="o">.</span><span class="n">id_to_token</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span>
+            <span class="c1"># antiprompt</span>
+            <span class="k">if</span> <span class="n">antiprompt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">token</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+                    <span class="n">sequence_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence_queue</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">stop_word</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sequence_queue</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()):</span>
+                        <span class="n">sequence_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sequence_queue</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">stop_word</span><span class="p">:</span>
+                            <span class="k">break</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">continue</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># consume sequence queue tokens</span>
+                        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence_queue</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="k">yield</span> <span class="n">sequence_queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">sequence_queue</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">yield</span> <span class="n">token</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pygptj.model.Model.cpp_generate" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">cpp_generate</span>
+
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">cpp_generate</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="p">,</span>
+    <span class="n">new_text_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">logits_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_predict</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">n_threads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">top_k</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+    <span class="n">temp</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+    <span class="n">n_batch</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Runs the inference to cpp generate function</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>prompt</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the prompt</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>new_text_callback</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span>[[str], None]</code>
+          </td>
+          <td><p>a callback function called when new text is generated, default <code>None</code></p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>logits_callback</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span>[[<span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span>], None]</code>
+          </td>
+          <td><p>a callback function to access the logits on every inference</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_predict</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>number of tokens to generate</p></td>
+          <td>
+                <code>128</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>seed</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The random seed</p></td>
+          <td>
+                <code>-1</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_threads</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Number of threads</p></td>
+          <td>
+                <code>4</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>top_k</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>top_k sampling parameter</p></td>
+          <td>
+                <code>40</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>top_p</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>top_p sampling parameter</p></td>
+          <td>
+                <code>0.9</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>temp</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td><p>temperature sampling parameter</p></td>
+          <td>
+                <code>0.9</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_batch</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>batch size for prompt processing</p></td>
+          <td>
+                <code>8</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>the new generated text</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pygptj/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">cpp_generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">new_text_callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">logits_callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">n_predict</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span>
+                 <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">n_threads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+                 <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
+                 <span class="n">top_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">,</span>
+                 <span class="n">temp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">,</span>
+                 <span class="n">n_batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Runs the inference to cpp generate function</span>
+
+<span class="sd">    :param prompt: the prompt</span>
+<span class="sd">    :param new_text_callback: a callback function called when new text is generated, default `None`</span>
+<span class="sd">    :param logits_callback: a callback function to access the logits on every inference</span>
+<span class="sd">    :param n_predict: number of tokens to generate</span>
+<span class="sd">    :param seed: The random seed</span>
+<span class="sd">    :param n_threads: Number of threads</span>
+<span class="sd">    :param top_k: top_k sampling parameter</span>
+<span class="sd">    :param top_p: top_p sampling parameter</span>
+<span class="sd">    :param temp: temperature sampling parameter</span>
+<span class="sd">    :param n_batch: batch size for prompt processing</span>
+
+<span class="sd">    :return: the new generated text</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">prompt</span> <span class="o">=</span> <span class="n">prompt</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">n_predict</span> <span class="o">=</span> <span class="n">n_predict</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">n_threads</span> <span class="o">=</span> <span class="n">n_threads</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">top_k</span> <span class="o">=</span> <span class="n">top_k</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">top_p</span> <span class="o">=</span> <span class="n">top_p</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="o">.</span><span class="n">n_batch</span> <span class="o">=</span> <span class="n">n_batch</span>
+
+    <span class="c1"># assign new_text_callback</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">Model</span><span class="o">.</span><span class="n">_new_text_callback</span> <span class="o">=</span> <span class="n">new_text_callback</span>
+
+    <span class="c1"># assign _logits_callback used for saving logits, token by token</span>
+    <span class="n">Model</span><span class="o">.</span><span class="n">_logits_callback</span> <span class="o">=</span> <span class="n">logits_callback</span>
+
+    <span class="c1"># run the prediction</span>
+    <span class="n">pp</span><span class="o">.</span><span class="n">gptj_generate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gpt_params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vocab</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_new_text_callback</span><span class="p">,</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">_call_logits_callback</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">res</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pygptj.model.Model.braindump" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">braindump</span>
+
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">braindump</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Dumps the logits to .npy</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>path</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>Output path</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>None</code>
+          </td>
+          <td><p>None</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pygptj/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">braindump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dumps the logits to .npy</span>
+<span class="sd">    :param path: Output path</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logits</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pygptj.model.Model.reset" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">reset</span>
+
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">reset</span><span class="p">()</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Resets the context</p>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>None</code>
+          </td>
+          <td><p>None</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pygptj/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Resets the context</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_n_past</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_context_tokens</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gpt_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vocab</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prompt_cntext</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_prefix_tokens</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gpt_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vocab</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prompt_prefix</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_prompt_suffix_tokens</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">gpt_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vocab</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prompt_suffix</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="pygptj.model.Model.get_params" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">get_params</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h4>
+<div class="highlight"><pre><span></span><code><span class="n">get_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a <code>dict</code> representation of the params</p>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>dict</code>
+          </td>
+          <td><p>params dict</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>/opt/hostedtoolcache/Python/3.11.3/x64/lib/python3.11/site-packages/pygptj/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">get_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a `dict` representation of the params</span>
+<span class="sd">    :return: params dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">param</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://github.com/abdeladim-s"  target="_blank" rel="noopener">abdeladim-s</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/nomic-ai/pygpt4all" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.c2be25ad.min.js"></script>
+      
+    
+  </body>
+</html>
