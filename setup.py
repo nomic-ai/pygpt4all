@@ -26,5 +26,5 @@ setup(
         'Source': 'https://github.com/nomic-ai/pygpt4all',
         'Tracker': 'https://github.com/nomic-ai/pygpt4all/issues',
     },
-    install_requires=["pyllamacpp", "pygptj"],
+    install_requires=["pyllamacpp", "pygptj>=2.0.1"],
 )
