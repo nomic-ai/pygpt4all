@@ -1,82 +1,17 @@
-# PyGPT4All
+# Pygpt4all
 
-Official Python CPU inference for [GPT4All](https://github.com/nomic-ai/gpt4all) language models based on [llama.cpp](https://github.com/ggerganov/llama.cpp) and [ggml](https://github.com/ggerganov/ggml)
+We've moved Python bindings with the main gpt4all repo.
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![PyPi version](https://badgen.net/pypi/v/pygpt4all)](https://pypi.org/project/pygpt4all/)
+Future development, issues, and the like will be handled in the main repo.
 
-<!-- TOC -->
+This repo will be archived and set to read-only.
 
-- [Installation](#installation)
-- [Tutorial](#tutorial)
-  - [Model instantiation](#model-instantiation)
-  - [Simple generation](#simple-generation)
-  - [Interactive Dialogue](#interactive-dialogue)
-- [API reference](#api-reference)
-- [License](#license)
-<!-- TOC -->
+The main repo is here: https://github.com/nomic-ai/gpt4all
 
-# Installation
+The subdirectory with this repo is here: https://github.com/nomic-ai/gpt4all/tree/main/gpt4all-bindings/python
 
-```bash
-pip install pygpt4all
-```
+## Deprecation Notice
+The `pygpt4all` PyPI package will no longer by actively maintained and the bindings may diverge from the GPT4All model backends.
+Please use the [gpt4all](https://pypi.org/project/gpt4all/) package moving forward to most up-to-date Python bindings.
 
-# Tutorial
-
-You will need first to download the model weights, you can find and download all the supported models from [here](https://github.com/nomic-ai/gpt4all-chat#manual-download-of-models).
-
-### Model instantiation
-
-Once the weights are downloaded, you can instantiate the models as follows:
-
-- GPT4All model
-
-```python
-from pygpt4all import GPT4All
-
-model = GPT4All('path/to/ggml-gpt4all-l13b-snoozy.bin')
-```
-
-- GPT4All-J model
-
-```python
-from pygpt4all import GPT4All_J
-
-model = GPT4All_J('path/to/ggml-gpt4all-j-v1.3-groovy.bin')
-```
-
-### Simple generation
-
-The `generate` function is used to generate new tokens from the `prompt` given as input:
-
-```python
-for token in model.generate("Tell me a joke ?\n"):
-    print(token, end='', flush=True)
-```
-
-### Interactive Dialogue
-
-You can set up an interactive dialogue by simply keeping the `model` variable alive:
-
-```python
-while True:
-    try:
-        prompt = input("You: ")
-        if prompt == '':
-            continue
-        print(f"AI:", end='')
-        for token in model.generate(prompt):
-            print(f"{token}", end='', flush=True)
-        print()
-    except KeyboardInterrupt:
-        break
-```
-
-# API reference
-
-You can check the [API reference documentation](https://nomic-ai.github.io/pygpt4all/) for more details.
-
-# License
-
-This project is licensed under the MIT [License](./LICENSE).
+Thank you!
